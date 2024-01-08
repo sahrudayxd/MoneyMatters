@@ -1,4 +1,5 @@
 import { Component } from "react";
+import Cookies from "js-cookie";
 
 import WebsiteLogo from "../WebsiteLogo";
 
@@ -62,8 +63,15 @@ class Login extends Component {
     );
   };
 
-  autenticateFailure = () => {
+  authenticateFailure = () => {
     this.setState({ showErrorMsg: true });
+  };
+
+  authenticateSuccess = (userId) => {
+    Cookies.set("money_matters_id", userId, { expires: 30 });
+
+    const { history } = this.props;
+    history.replace("/dashboard");
   };
 
   onValidateUserDetails = async () => {
@@ -89,7 +97,9 @@ class Login extends Component {
     const userArr = data.get_user_id;
 
     if (userArr[0] === undefined) {
-      this.autenticateFailure();
+      this.authenticateFailure();
+    } else {
+      this.authenticateSuccess(userArr[0].id);
     }
   };
 
