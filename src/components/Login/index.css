@@ -92,3 +92,9 @@
   width: 100%;
   margin-top: 24px;
 }
+
+.error-msg {
+  color: #e12020;
+  font-size: 14px;
+  font-weight: 500;
+}
