@@ -4,6 +4,7 @@ import Cookies from "js-cookie";
 import WebsiteLogo from "../WebsiteLogo";
 
 import "./index.css";
+import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 
 class Login extends Component {
   state = { username: "", password: "", showErrorMsg: false };
@@ -110,7 +111,13 @@ class Login extends Component {
   };
 
   render() {
+    const userId = Cookies.get("money_matters_id");
+    if (userId !== undefined) {
+      return <Redirect to="/dashboard" />;
+    }
+
     const { showErrorMsg } = this.state;
+
     return (
       <div className="login-flex-container">
         <form className="login-form" onSubmit={this.onSubmitForm}>
