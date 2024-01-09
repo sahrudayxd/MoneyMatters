@@ -1,10 +1,12 @@
 import { Component } from "react";
 
+import NavBar from "../NavBar";
+
 import "./index.css";
 
 class Dashboard extends Component {
   render() {
-    return <h1>Dashboard</h1>;
+    return <NavBar />;
   }
 }
 

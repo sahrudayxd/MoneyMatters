@@ -1,0 +1,27 @@
+.nav {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mobile-menu-popup {
+  width: 100vw;
+  height: 100vh;
+  background-color: #ffffff;
+}
+
+.close-icon-container {
+  padding: 28px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-menu-button {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  padding: 0px;
+  margin: 0px;
+}

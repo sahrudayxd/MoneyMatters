@@ -1,10 +1,10 @@
 import { Component } from "react";
 import Cookies from "js-cookie";
+import { Redirect } from "react-router-dom";
 
 import WebsiteLogo from "../WebsiteLogo";
 
 import "./index.css";
-import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 
 class Login extends Component {
   state = { username: "", password: "", showErrorMsg: false };
