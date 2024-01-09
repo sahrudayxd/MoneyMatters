@@ -5,6 +5,26 @@
   align-items: center;
 }
 
+@media screen and (min-width: 768px) {
+  .nav {
+    padding: 24px 36px;
+  }
+}
+
+.nav-logo {
+  margin-right: 54px;
+}
+
+.mobile-menu-icon {
+  display: block;
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-menu-icon {
+    display: none;
+  }
+}
+
 .mobile-menu-popup {
   width: 100vw;
   height: 100vh;
@@ -24,4 +44,37 @@
   background-color: transparent;
   padding: 0px;
   margin: 0px;
+}
+
+.navbar-desktop-header {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .navbar-desktop-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+.navbar-title {
+  color: #343c6a;
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0px;
+}
+
+.add-transaction-button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  background: #2d60ff;
+  padding: 10px 12px;
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 15px;
 }
