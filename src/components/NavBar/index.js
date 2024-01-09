@@ -35,14 +35,14 @@ class NavBar extends Component {
   renderDesktopHeaderView = () => {
     const { match } = this.props;
     const { path } = match;
-    console.log(path);
+
     const navbarContent = () => {
       switch (path) {
         case "/dashboard":
           return "Dashboard";
         case "/transactions":
           return "Transactions";
-        case "/account":
+        case "/profile":
           return "Account";
         default:
           return "";

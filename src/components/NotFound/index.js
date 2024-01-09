@@ -1,10 +1,20 @@
 import { Component } from "react";
 
+import NavBar from "../NavBar";
+import Sidebar from "../Sidebar";
+
 import "./index.css";
 
 class NotFound extends Component {
   render() {
-    return <h1>NotFound</h1>;
+    return (
+      <>
+        <NavBar />
+        <div>
+          <Sidebar />
+        </div>
+      </>
+    );
   }
 }
 
