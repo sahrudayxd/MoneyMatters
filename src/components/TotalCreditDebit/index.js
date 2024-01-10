@@ -7,10 +7,15 @@ import "./index.css";
 const apiStatusConstants = {
   initial: "INITIAL",
   inProgress: "IN_PROGRESS",
+  success: "SUCCESS",
 };
 
 class TotalCreditDebit extends Component {
-  state = { apiStatus: apiStatusConstants.initial };
+  state = {
+    apiStatus: apiStatusConstants.initial,
+    totalCredit: 0,
+    totalDebit: 0,
+  };
 
   componentDidMount() {
     this.setState({ apiStatus: apiStatusConstants.inProgress });
@@ -35,7 +40,18 @@ class TotalCreditDebit extends Component {
       },
     });
     const data = await response.json();
-    console.log(data);
+    const credit = data.transaction_totals_admin.find(
+      (transaction) => transaction.type === "credit"
+    );
+    const debit = data.transaction_totals_admin.find(
+      (transaction) => transaction.type === "debit"
+    );
+
+    this.setState({
+      totalCredit: credit.sum,
+      totalDebit: debit.sum,
+      apiStatus: apiStatusConstants.success,
+    });
   };
 
   fetchUserApi = async (userId) => {
@@ -51,7 +67,18 @@ class TotalCreditDebit extends Component {
       },
     });
     const data = await response.json();
-    console.log(data);
+    const credit = data.totals_credit_debit_transactions.find(
+      (transaction) => transaction.type === "credit"
+    );
+    const debit = data.totals_credit_debit_transactions.find(
+      (transaction) => transaction.type === "debit"
+    );
+
+    this.setState({
+      totalCredit: credit.sum,
+      totalDebit: debit.sum,
+      apiStatus: apiStatusConstants.success,
+    });
   };
 
   renderInProgressView = () => (
@@ -60,12 +87,45 @@ class TotalCreditDebit extends Component {
     </div>
   );
 
+  renderCreditDebitCards = () => {
+    const { totalCredit, totalDebit } = this.state;
+
+    return (
+      <>
+        <div className="total-amount-card">
+          <div>
+            <p className="total-credit">${totalCredit}</p>
+            <p className="credit-debit-name">Credit</p>
+          </div>
+          <img
+            className="credit-image"
+            src="https://res.cloudinary.com/dtkwvlezz/image/upload/f_auto,q_auto/v1/MoneyMatters/dashboard-credit"
+            alt="total credit"
+          />
+        </div>
+        <div className="total-amount-card">
+          <div>
+            <p className="total-debit">${totalDebit}</p>
+            <p className="credit-debit-name">Debit</p>
+          </div>
+          <img
+            className="debit-image"
+            src="https://res.cloudinary.com/dtkwvlezz/image/upload/f_auto,q_auto/v1/MoneyMatters/dashboard-debit"
+            alt="total debit"
+          />
+        </div>
+      </>
+    );
+  };
+
   renderApiStatusView = () => {
     const { apiStatus } = this.state;
 
     switch (apiStatus) {
       case apiStatusConstants.inProgress:
         return this.renderInProgressView();
+      case apiStatusConstants.success:
+        return this.renderCreditDebitCards();
       default:
         return null;
     }

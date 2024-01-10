@@ -1,7 +1,11 @@
-.total-credit-debit {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+@media screen and (min-width: 768px) {
+  .total-credit-debit {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: auto;
+  }
 }
 
 .credit-debit-loader {
@@ -14,4 +18,56 @@
   flex-shrink: 0;
   background-color: #ffffff;
   border-radius: 16px;
+}
+
+.total-amount-card {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-sizing: border-box;
+  padding: 16px;
+  background-color: #ffffff;
+  border-radius: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 0 10px #e1dfdf;
+}
+
+@media screen and (min-width: 768px) {
+  .total-amount-card {
+    width: 48%;
+    padding: 24px 36px;
+  }
+}
+
+.total-credit {
+  color: #16dbaa;
+  font-family: Roboto;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+
+.credit-debit-name {
+  color: #718ebf;
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.credit-image {
+  width: 180px;
+  height: 161px;
+}
+
+.total-debit {
+  color: #fe5c73;
+  font-family: Roboto;
+  font-size: 28px;
+  font-weight: 600;
+  margin-bottom: 0px;
+}
+
+.debit-image {
+  width: 180px;
+  height: 154px;
 }

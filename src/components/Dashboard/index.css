@@ -1,6 +1,5 @@
 .dashboard {
   background-color: #f5f7fa;
-  min-height: 100vh;
 }
 
 .sidebar-dashboard-container {
@@ -20,6 +19,7 @@
 .dashboard-stats {
   padding: 16px;
   width: 100%;
+  border: #e2e4e6 solid 1px;
 }
 
 @media screen and (min-width: 768px) {
