@@ -1,12 +1,21 @@
 import { Component } from "react";
+import Cookies from "js-cookie";
+import { ThreeDots } from "react-loader-spinner";
 
 import "./index.css";
-import Cookies from "js-cookie";
+
+const apiStatusConstants = {
+  initial: "INITIAL",
+  inProgress: "IN_PROGRESS",
+};
 
 class TotalCreditDebit extends Component {
-  componentDidMount() {
-    const userId = Cookies.get("money_matters_id");
+  state = { apiStatus: apiStatusConstants.initial };
 
+  componentDidMount() {
+    this.setState({ apiStatus: apiStatusConstants.inProgress });
+
+    const userId = Cookies.get("money_matters_id");
     if (userId === "3") {
       this.fetchAdminApi();
     } else {
@@ -45,8 +54,27 @@ class TotalCreditDebit extends Component {
     console.log(data);
   };
 
+  renderInProgressView = () => (
+    <div className="credit-debit-loader">
+      <ThreeDots />
+    </div>
+  );
+
+  renderApiStatusView = () => {
+    const { apiStatus } = this.state;
+
+    switch (apiStatus) {
+      case apiStatusConstants.inProgress:
+        return this.renderInProgressView();
+      default:
+        return null;
+    }
+  };
+
   render() {
-    return <div>Honey</div>;
+    return (
+      <div className="total-credit-debit">{this.renderApiStatusView()}</div>
+    );
   }
 }
 

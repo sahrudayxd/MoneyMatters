@@ -15,7 +15,7 @@ class Dashboard extends Component {
           <div className="desktop-sidebar">
             <Sidebar />
           </div>
-          <div>
+          <div className="dashboard-stats">
             <TotalCreditDebit />
           </div>
         </div>
