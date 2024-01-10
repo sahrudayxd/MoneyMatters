@@ -8,6 +8,7 @@ const apiStatusConstants = {
   initial: "INITIAL",
   inProgress: "IN_PROGRESS",
   success: "SUCCESS",
+  failure: "FAILURE",
 };
 
 class TotalCreditDebit extends Component {
@@ -15,9 +16,14 @@ class TotalCreditDebit extends Component {
     apiStatus: apiStatusConstants.initial,
     totalCredit: 0,
     totalDebit: 0,
+    errorDetails: null,
   };
 
   componentDidMount() {
+    this.fectchTotalCreditDebitApi();
+  }
+
+  fectchTotalCreditDebitApi = () => {
     this.setState({ apiStatus: apiStatusConstants.inProgress });
 
     const userId = Cookies.get("money_matters_id");
@@ -26,59 +32,73 @@ class TotalCreditDebit extends Component {
     } else {
       this.fetchUserApi(userId);
     }
-  }
+  };
 
   fetchAdminApi = async () => {
-    const adminUrl =
-      "https://bursting-gelding-24.hasura.app/api/rest/transaction-totals-admin";
-    const response = await fetch(adminUrl, {
-      headers: {
-        "Content-Type": "application/json",
-        "x-hasura-admin-secret":
-          "g08A3qQy00y8yFDq3y6N1ZQnhOPOa4msdie5EtKS1hFStar01JzPKrtKEzYY2BtF",
-        "x-hasura-role": "admin",
-      },
-    });
-    const data = await response.json();
-    const credit = data.transaction_totals_admin.find(
-      (transaction) => transaction.type === "credit"
-    );
-    const debit = data.transaction_totals_admin.find(
-      (transaction) => transaction.type === "debit"
-    );
+    try {
+      const adminUrl =
+        "https://bursting-gelding-24.hasura.app/api/rest/transaction-totals-admin";
+      const response = await fetch(adminUrl, {
+        headers: {
+          "Content-Type": "application/json",
+          "x-hasura-admin-secret":
+            "g08A3qQy00y8yFDq3y6N1ZQnhOPOa4msdie5EtKS1hFStar01JzPKrtKEzYY2BtF",
+          "x-hasura-role": "admin",
+        },
+      });
+      const data = await response.json();
+      const credit = data.transaction_totals_admin.find(
+        (transaction) => transaction.type === "credit"
+      );
+      const debit = data.transaction_totals_admin.find(
+        (transaction) => transaction.type === "debit"
+      );
 
-    this.setState({
-      totalCredit: credit.sum,
-      totalDebit: debit.sum,
-      apiStatus: apiStatusConstants.success,
-    });
+      this.setState({
+        totalCredit: credit.sum,
+        totalDebit: debit.sum,
+        apiStatus: apiStatusConstants.success,
+      });
+    } catch (error) {
+      this.setState({
+        apiStatus: apiStatusConstants.failure,
+        errorDetails: error,
+      });
+    }
   };
 
   fetchUserApi = async (userId) => {
-    const userUrl =
-      "https://bursting-gelding-24.hasura.app/api/rest/credit-debit-totals";
-    const response = await fetch(userUrl, {
-      headers: {
-        "Content-Type": "application/json",
-        "x-hasura-admin-secret":
-          "g08A3qQy00y8yFDq3y6N1ZQnhOPOa4msdie5EtKS1hFStar01JzPKrtKEzYY2BtF",
-        "x-hasura-role": "user",
-        "x-hasura-user-id": userId,
-      },
-    });
-    const data = await response.json();
-    const credit = data.totals_credit_debit_transactions.find(
-      (transaction) => transaction.type === "credit"
-    );
-    const debit = data.totals_credit_debit_transactions.find(
-      (transaction) => transaction.type === "debit"
-    );
+    try {
+      const userUrl =
+        "https://bursting-gelding-24.hasura.app/api/rest/credit-debit-totals";
+      const response = await fetch(userUrl, {
+        headers: {
+          "Content-Type": "application/json",
+          "x-hasura-admin-secret":
+            "g08A3qQy00y8yFDq3y6N1ZQnhOPOa4msdie5EtKS1hFStar01JzPKrtKEzYY2BtF",
+          "x-hasura-role": "user",
+          "x-hasura-user-id": userId,
+        },
+      });
+      const data = await response.json();
+      const credit = data.totals_credit_debit_transactions.find(
+        (transaction) => transaction.type === "credit"
+      );
+      const debit = data.totals_credit_debit_transactions.find(
+        (transaction) => transaction.type === "debit"
+      );
 
-    this.setState({
-      totalCredit: credit.sum,
-      totalDebit: debit.sum,
-      apiStatus: apiStatusConstants.success,
-    });
+      this.setState({
+        totalCredit: credit.sum,
+        totalDebit: debit.sum,
+        apiStatus: apiStatusConstants.success,
+      });
+    } catch (error) {
+      this.setState({
+        apiStatus: apiStatusConstants.failure,
+        errorDetails: error,
+      });
+    }
   };
 
   renderInProgressView = () => (
@@ -118,6 +138,19 @@ class TotalCreditDebit extends Component {
     );
   };
 
+  renderFailureView = () => (
+    <div className="failure-view">
+      <p className="failure-msg">Oops! Something went wrong</p>
+      <button
+        type="button"
+        className="failure-button"
+        onClick={this.fectchTotalCreditDebitApi}
+      >
+        Try Again
+      </button>
+    </div>
+  );
+
   renderApiStatusView = () => {
     const { apiStatus } = this.state;
 
@@ -126,6 +159,8 @@ class TotalCreditDebit extends Component {
         return this.renderInProgressView();
       case apiStatusConstants.success:
         return this.renderCreditDebitCards();
+      case apiStatusConstants.failure:
+        return this.renderFailureView();
       default:
         return null;
     }
