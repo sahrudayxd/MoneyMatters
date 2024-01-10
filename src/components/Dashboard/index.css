@@ -1,0 +1,17 @@
+.dashboard {
+  background-color: #f5f7fa;
+}
+
+.sidebar-dashboard-container {
+  display: flex;
+}
+
+.desktop-sidebar {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .desktop-sidebar {
+    display: flex;
+  }
+}

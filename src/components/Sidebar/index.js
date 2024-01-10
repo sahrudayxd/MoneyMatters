@@ -31,7 +31,7 @@ const Sidebar = (props) => {
                 path === "/dashboard" ? "active-route-name" : "route-name"
               }
             >
-              Home
+              Dashboard
             </span>
           </Link>
         </li>
