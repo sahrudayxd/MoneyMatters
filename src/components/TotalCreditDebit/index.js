@@ -2,6 +2,8 @@ import { Component } from "react";
 import Cookies from "js-cookie";
 import { ThreeDots } from "react-loader-spinner";
 
+import Failure from "../Failure";
+
 import "./index.css";
 
 const apiStatusConstants = {
@@ -57,7 +59,7 @@ class TotalCreditDebit extends Component {
       this.setState({
         totalCredit: credit.sum,
         totalDebit: debit.sum,
-        apiStatus: apiStatusConstants.success,
+        apiStatus: apiStatusConstants.failure,
       });
     } catch (error) {
       this.setState({
@@ -102,7 +104,7 @@ class TotalCreditDebit extends Component {
   };
 
   renderInProgressView = () => (
-    <div className="credit-debit-loader">
+    <div className="credit-debit-loader-and-failure">
       <ThreeDots />
     </div>
   );
@@ -139,15 +141,8 @@ class TotalCreditDebit extends Component {
   };
 
   renderFailureView = () => (
-    <div className="failure-view">
-      <p className="failure-msg">Oops! Something went wrong</p>
-      <button
-        type="button"
-        className="failure-button"
-        onClick={this.fectchTotalCreditDebitApi}
-      >
-        Try Again
-      </button>
+    <div className="credit-debit-loader-and-failure">
+      <Failure fetchApi={this.fectchTotalCreditDebitApi} />
     </div>
   );
 
