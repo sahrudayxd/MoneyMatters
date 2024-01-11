@@ -3,6 +3,7 @@ import { Component } from "react";
 import NavBar from "../NavBar";
 import Sidebar from "../Sidebar";
 import TotalCreditDebit from "../TotalCreditDebit";
+import LastThreeTransactions from "../LastThreeTransactions";
 
 import "./index.css";
 
@@ -17,6 +18,8 @@ class Dashboard extends Component {
           </div>
           <div className="dashboard-stats">
             <TotalCreditDebit />
+            <h1 className="dashboard-title">Last Transactions</h1>
+            <LastThreeTransactions />
           </div>
         </div>
       </div>

@@ -27,3 +27,11 @@
     padding: 36px;
   }
 }
+
+.dashboard-title {
+  color: #333b69;
+  font-family: Roboto;
+  font-size: 22px;
+  font-weight: 600;
+  margin-top: 12px;
+}
