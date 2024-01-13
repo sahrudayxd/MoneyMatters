@@ -33,6 +33,12 @@
 
 @media screen and (min-width: 1115px) {
   .total-amount-card {
+    padding: 24px 36px;
+  }
+}
+
+@media screen and (min-width: 1115px) {
+  .total-amount-card {
     width: 48%;
     padding: 24px 36px;
   }

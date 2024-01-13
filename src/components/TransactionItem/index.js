@@ -79,9 +79,19 @@ const renderUserEditDeleteOptions = () => (
   </div>
 );
 
+const renderFullDate = (date) => {
+  const formattedDate = format(parseISO(date), "dd-MM-yyyy");
+
+  return (
+    <p className="transaction-text-style desktop-devices-date">
+      {formattedDate}
+    </p>
+  );
+};
+
 export const AdminTransactionItem = (props) => {
   const { transaction, isLastTransaction } = props;
-  const { type, transactionName, amount } = transaction;
+  const { type, transactionName, amount, category, date } = transaction;
 
   return (
     <>
@@ -95,6 +105,10 @@ export const AdminTransactionItem = (props) => {
         <p className="transaction-text-style admin-transaction-name">
           {capitalizeFirstLetter(transactionName)}
         </p>
+        <p className="transaction-text-style admin-transaction-category">
+          {capitalizeFirstLetter(category)}
+        </p>
+        {renderFullDate(date)}
         {renderAmount(type, amount)}
       </li>
       {!isLastTransaction && <hr className="transaction-hr" />}
@@ -104,7 +118,7 @@ export const AdminTransactionItem = (props) => {
 
 export const UserTransactionItem = (props) => {
   const { transaction, isLastTransaction } = props;
-  const { type, transactionName, amount, date } = transaction;
+  const { type, transactionName, amount, date, category } = transaction;
   const formattedDate = format(parseISO(date), "dd-MM-yy");
 
   return (
@@ -118,9 +132,13 @@ export const UserTransactionItem = (props) => {
             {capitalizeFirstLetter(transactionName)}
           </p>
         </div>
+        <p className="transaction-text-style user-transaction-category">
+          {capitalizeFirstLetter(category)}
+        </p>
         <p className="transaction-text-style mobile-devices-date">
           {formattedDate}
         </p>
+        {renderFullDate(date)}
         {renderAmount(type, amount)}
         {renderUserEditDeleteOptions()}
       </li>

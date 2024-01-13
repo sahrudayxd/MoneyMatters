@@ -16,3 +16,9 @@
   background: #fff;
   box-shadow: 0 0 10px #e1dfdf;
 }
+
+@media screen and (min-width: 768px) {
+  .last-three-transactions {
+    padding: 16px 30px;
+  }
+}

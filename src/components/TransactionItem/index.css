@@ -8,12 +8,24 @@
   border: 1px solid #e2e2e2;
 }
 
+@media screen and (min-width: 1000px) {
+  .transaction-hr {
+    margin: 10px 0px;
+  }
+}
+
 .transaction-user-profile-container {
   box-sizing: border-box;
   width: 62%;
   display: flex;
   align-items: center;
   padding-right: 8px;
+}
+
+@media screen and (min-width: 1000px) {
+  .transaction-user-profile-container {
+    width: 36%;
+  }
 }
 
 .transaction-icon-container {
@@ -34,6 +46,38 @@
   margin: 0px;
 }
 
+@media screen and (min-width: 1000px) {
+  .transaction-text-style {
+    font-size: 16px;
+  }
+}
+
+.admin-transaction-category {
+  display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  .admin-transaction-category {
+    display: flex;
+    width: 12%;
+    padding-right: 6px;
+    box-sizing: border-box;
+  }
+}
+
+.user-transaction-category {
+  display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  .user-transaction-category {
+    display: flex;
+    width: 16%;
+    padding-right: 6px;
+    box-sizing: border-box;
+  }
+}
+
 .admin-transaction-name {
   width: 20%;
   box-sizing: border-box;
@@ -43,9 +87,23 @@
   text-overflow: ellipsis;
 }
 
+@media screen and (min-width: 1000px) {
+  .admin-transaction-name {
+    width: 22%;
+    padding-left: 12px;
+  }
+}
+
 .transaction-amount {
   width: 18%;
   box-sizing: border-box;
+  text-align: end;
+}
+
+@media screen and (min-width: 1000px) {
+  .transaction-amount {
+    width: 14%;
+  }
 }
 
 .credit-color {
@@ -76,6 +134,25 @@
   padding-right: 12px;
 }
 
+@media screen and (min-width: 1000px) {
+  .mobile-devices-date {
+    display: none;
+  }
+}
+
+.desktop-devices-date {
+  display: none;
+}
+
+@media screen and (min-width: 1000px) {
+  .desktop-devices-date {
+    display: flex;
+    box-sizing: border-box;
+    width: 16%;
+    padding-left: 6px;
+  }
+}
+
 .edit-delete-buttons-container {
   box-sizing: border-box;
   width: 20%;
@@ -85,6 +162,12 @@
   padding-right: 8px;
 }
 
+@media screen and (min-width: 1000px) {
+  .edit-delete-buttons-container {
+    width: 14%;
+  }
+}
+
 .edit-delete-button {
   outline: none;
   border: none;
@@ -92,4 +175,10 @@
   padding: 0px;
   margin-top: 0px;
   padding-left: 8px;
+}
+
+@media screen and (min-width: 1000px) {
+  .edit-delete-button {
+    padding-left: 16px;
+  }
 }
