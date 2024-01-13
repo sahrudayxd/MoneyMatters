@@ -1,0 +1,95 @@
+.transaction-item {
+  display: flex;
+  align-items: center;
+  margin: 0px;
+}
+
+.transaction-hr {
+  border: 1px solid #e2e2e2;
+}
+
+.transaction-user-profile-container {
+  box-sizing: border-box;
+  width: 62%;
+  display: flex;
+  align-items: center;
+  padding-right: 8px;
+}
+
+.transaction-icon-container {
+  margin-right: 8px;
+  margin-top: 4px;
+}
+
+.transaction-user-profile {
+  width: 32px;
+  margin-right: 8px;
+}
+
+.transaction-text-style {
+  color: #505887;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 400;
+  margin: 0px;
+}
+
+.admin-transaction-name {
+  width: 20%;
+  box-sizing: border-box;
+  padding-right: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.transaction-amount {
+  width: 18%;
+  box-sizing: border-box;
+}
+
+.credit-color {
+  color: #16dbaa;
+}
+
+.debit-color {
+  color: #fe5c73;
+}
+
+.transaction-icon-name-container {
+  box-sizing: border-box;
+  width: 42%;
+  display: flex;
+  align-items: center;
+}
+
+.user-transaction-name {
+  box-sizing: border-box;
+  padding-right: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobile-devices-date {
+  width: 20%;
+  padding-right: 12px;
+}
+
+.edit-delete-buttons-container {
+  box-sizing: border-box;
+  width: 20%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-right: 8px;
+}
+
+.edit-delete-button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  padding: 0px;
+  margin-top: 0px;
+  padding-left: 8px;
+}

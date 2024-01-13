@@ -59,7 +59,7 @@ class TotalCreditDebit extends Component {
       this.setState({
         totalCredit: credit.sum,
         totalDebit: debit.sum,
-        apiStatus: apiStatusConstants.failure,
+        apiStatus: apiStatusConstants.success,
       });
     } catch (error) {
       this.setState({
@@ -116,7 +116,7 @@ class TotalCreditDebit extends Component {
       <>
         <div className="total-amount-card">
           <div>
-            <p className="total-credit">${totalCredit}</p>
+            <p className="total-credit">₹{totalCredit}</p>
             <p className="credit-debit-name">Credit</p>
           </div>
           <img
@@ -127,7 +127,7 @@ class TotalCreditDebit extends Component {
         </div>
         <div className="total-amount-card">
           <div>
-            <p className="total-debit">${totalDebit}</p>
+            <p className="total-debit">₹{totalDebit}</p>
             <p className="credit-debit-name">Debit</p>
           </div>
           <img

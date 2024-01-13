@@ -3,6 +3,7 @@ import Cookies from "js-cookie";
 import { ThreeDots } from "react-loader-spinner";
 
 import Failure from "../Failure";
+import TransactionsList from "../TransactionsList";
 
 import "./index.css";
 
@@ -70,8 +71,11 @@ class LastThreeTransactions extends Component {
 
   renderLastThreeTransactions = () => {
     const { transactions } = this.state;
-    console.log(transactions);
-    return <p>LastThreeTransactions</p>;
+    return (
+      <div className="last-three-transactions">
+        <TransactionsList transactions={transactions} />
+      </div>
+    );
   };
 
   renderFailureView = () => (
@@ -96,11 +100,7 @@ class LastThreeTransactions extends Component {
   };
 
   render() {
-    return (
-      <div className="last-three-transactions">
-        {this.renderApiStatusView()}
-      </div>
-    );
+    return <>{this.renderApiStatusView()}</>;
   }
 }
 
