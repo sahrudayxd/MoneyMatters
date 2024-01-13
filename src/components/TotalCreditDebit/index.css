@@ -1,4 +1,4 @@
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 1115px) {
   .total-credit-debit {
     display: flex;
     justify-content: space-between;
@@ -31,7 +31,7 @@
   box-shadow: 0 0 10px #e1dfdf;
 }
 
-@media screen and (min-width: 1050px) {
+@media screen and (min-width: 1115px) {
   .total-amount-card {
     width: 48%;
     padding: 24px 36px;
