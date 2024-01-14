@@ -80,7 +80,7 @@ const renderUserEditDeleteOptions = () => (
 );
 
 const renderFullDate = (date) => {
-  const formattedDate = format(parseISO(date), "dd-MM-yyyy");
+  const formattedDate = format(parseISO(date), "dd LLL, yyyy hh:mm a");
 
   return (
     <p className="transaction-text-style desktop-devices-date">
@@ -125,12 +125,14 @@ export const UserTransactionItem = (props) => {
     <>
       <li className="transaction-item">
         <div className="transaction-icon-name-container">
-          <div className="transaction-icon-container">
-            {renderTransactionTypeIcon(type)}
+          <div className="flex-container">
+            <div className="transaction-icon-container">
+              {renderTransactionTypeIcon(type)}
+            </div>
+            <p className="transaction-text-style user-transaction-name">
+              {capitalizeFirstLetter(transactionName)}
+            </p>
           </div>
-          <p className="transaction-text-style user-transaction-name">
-            {capitalizeFirstLetter(transactionName)}
-          </p>
         </div>
         <p className="transaction-text-style user-transaction-category">
           {capitalizeFirstLetter(category)}

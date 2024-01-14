@@ -10,7 +10,7 @@ const TransactionsList = (props) => {
   const userId = Cookies.get("money_matters_id");
 
   return (
-    <ul className="transactions">
+    <ul className="transactions-list">
       {transactions.map((transaction, index) => {
         if (userId === "3") {
           return (

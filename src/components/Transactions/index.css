@@ -1,0 +1,169 @@
+.transactions {
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+.sidebar-transactions-container {
+  display: flex;
+  min-height: 90vh;
+}
+
+.transactions-stats {
+  padding: 16px;
+  width: 100%;
+  border: #e2e4e6 solid 1px;
+}
+
+@media screen and (min-width: 768px) {
+  .transactions-stats {
+    padding: 36px;
+  }
+}
+
+.transactions-failure-loader {
+  display: flex;
+  width: 100%;
+  height: 90vh;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 16px;
+}
+
+.transactions-table {
+  padding: 16px;
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 0 10px #e1dfdf;
+}
+
+@media screen and (min-width: 768px) {
+  .transactions-table {
+    padding: 16px 30px;
+  }
+}
+
+.transaction-table-headers {
+  display: flex;
+  align-items: center;
+}
+
+.table-header {
+  color: #343c6a;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 500;
+  margin: 0px 0px 8px 0px;
+  box-sizing: border-box;
+}
+
+@media screen and (min-width: 1050px) {
+  .table-header {
+    margin: 12px 0px;
+  }
+}
+
+.username-header {
+  width: 54%;
+}
+
+@media screen and (min-width: 1050px) {
+  .username-header {
+    width: 26%;
+  }
+}
+
+.admin-transaction-name-header {
+  width: 24%;
+  padding-right: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media screen and (min-width: 1050px) {
+  .admin-transaction-name-header {
+    padding: 0px 6px 0px 12px;
+  }
+}
+
+.admin-category-header {
+  display: none;
+}
+
+@media screen and (min-width: 1050px) {
+  .admin-category-header {
+    display: block;
+    width: 16%;
+  }
+}
+
+.admin-date-header {
+  display: none;
+}
+
+@media screen and (min-width: 1050px) {
+  .admin-date-header {
+    display: block;
+    width: 20%;
+    padding-left: 6px;
+  }
+}
+
+.admin-amount-header {
+  width: 22%;
+  text-align: end;
+}
+
+@media screen and (min-width: 1050px) {
+  .admin-amount-header {
+    width: 14%;
+  }
+}
+
+.user-transaction-name-header {
+  width: 40%;
+  padding-right: 16px;
+}
+
+@media screen and (min-width: 1050px) {
+  .user-transaction-name-header {
+    padding: 0px 6px 0px 12px;
+    width: 32%;
+  }
+}
+
+.user-category-header {
+  display: none;
+}
+
+@media screen and (min-width: 1050px) {
+  .user-category-header {
+    display: block;
+    width: 20%;
+  }
+}
+
+.user-date-header {
+  width: 20%;
+}
+
+@media screen and (min-width: 1050px) {
+  .user-date-header {
+    display: block;
+    width: 20%;
+    padding-left: 6px;
+  }
+}
+
+.user-amount-header {
+  width: 20%;
+  text-align: end;
+}
+
+@media screen and (min-width: 1050px) {
+  .user-amount-header {
+    width: 14%;
+  }
+}

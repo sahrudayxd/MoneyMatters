@@ -8,7 +8,7 @@
   border: 1px solid #e2e2e2;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1050px) {
   .transaction-hr {
     margin: 10px 0px;
   }
@@ -16,15 +16,15 @@
 
 .transaction-user-profile-container {
   box-sizing: border-box;
-  width: 62%;
+  width: 54%;
   display: flex;
   align-items: center;
   padding-right: 8px;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1050px) {
   .transaction-user-profile-container {
-    width: 36%;
+    width: 26%;
   }
 }
 
@@ -46,7 +46,7 @@
   margin: 0px;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1050px) {
   .transaction-text-style {
     font-size: 16px;
   }
@@ -54,32 +54,6 @@
 
 .admin-transaction-category {
   display: none;
-}
-
-@media screen and (min-width: 1000px) {
-  .admin-transaction-category {
-    display: flex;
-    width: 12%;
-    padding-right: 6px;
-    box-sizing: border-box;
-  }
-}
-
-.user-transaction-category {
-  display: none;
-}
-
-@media screen and (min-width: 1000px) {
-  .user-transaction-category {
-    display: flex;
-    width: 16%;
-    padding-right: 6px;
-    box-sizing: border-box;
-  }
-}
-
-.admin-transaction-name {
-  width: 20%;
   box-sizing: border-box;
   padding-right: 6px;
   white-space: nowrap;
@@ -87,20 +61,48 @@
   text-overflow: ellipsis;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1050px) {
+  .admin-transaction-category {
+    display: block;
+    width: 16%;
+  }
+}
+
+.user-transaction-category {
+  display: none;
+}
+
+@media screen and (min-width: 1050px) {
+  .user-transaction-category {
+    display: flex;
+    width: 20%;
+    padding-right: 6px;
+    box-sizing: border-box;
+  }
+}
+
+.admin-transaction-name {
+  width: 24%;
+  box-sizing: border-box;
+  padding-right: 6px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media screen and (min-width: 1050px) {
   .admin-transaction-name {
-    width: 22%;
     padding-left: 12px;
   }
 }
 
 .transaction-amount {
-  width: 18%;
+  width: 22%;
   box-sizing: border-box;
   text-align: end;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1050px) {
   .transaction-amount {
     width: 14%;
   }
@@ -116,25 +118,36 @@
 
 .transaction-icon-name-container {
   box-sizing: border-box;
-  width: 42%;
-  display: flex;
-  align-items: center;
-}
-
-.user-transaction-name {
-  box-sizing: border-box;
+  width: 40%;
   padding-right: 10px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-.mobile-devices-date {
-  width: 20%;
-  padding-right: 12px;
+@media screen and (min-width: 1050px) {
+  .transaction-icon-name-container {
+    width: 32%;
+  }
 }
 
-@media screen and (min-width: 1000px) {
+.flex-container {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.user-transaction-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mobile-devices-date {
+  width: 18%;
+}
+
+@media screen and (min-width: 1050px) {
   .mobile-devices-date {
     display: none;
   }
@@ -144,11 +157,11 @@
   display: none;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1050px) {
   .desktop-devices-date {
     display: flex;
     box-sizing: border-box;
-    width: 16%;
+    width: 20%;
     padding-left: 6px;
   }
 }
@@ -159,10 +172,10 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  padding-right: 8px;
+  padding-right: 2px;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1050px) {
   .edit-delete-buttons-container {
     width: 14%;
   }
@@ -174,10 +187,10 @@
   background-color: transparent;
   padding: 0px;
   margin-top: 0px;
-  padding-left: 8px;
+  padding-left: 12px;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1050px) {
   .edit-delete-button {
     padding-left: 16px;
   }
