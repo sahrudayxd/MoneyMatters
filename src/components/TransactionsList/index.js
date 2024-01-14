@@ -6,7 +6,6 @@ import "./index.css";
 
 const TransactionsList = (props) => {
   const { transactions } = props;
-  console.log(transactions);
   const userId = Cookies.get("money_matters_id");
 
   return (

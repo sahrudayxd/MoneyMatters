@@ -22,6 +22,7 @@ class Transactions extends Component {
     apiStatus: apiStatusConstants.initial,
     transactions: [],
     errorDetails: "",
+    activeFilter: "allTransactions",
   };
 
   componentDidMount() {
@@ -102,12 +103,20 @@ class Transactions extends Component {
   };
 
   renderTransactions = () => {
-    const { transactions } = this.state;
+    const { transactions, activeFilter } = this.state;
+
+    let filteredTransactions = [...transactions];
+    if (activeFilter !== "allTransactions") {
+      filteredTransactions = transactions.filter(
+        (transaction) => transaction.type === activeFilter
+      );
+    }
+
     return (
       <div className="transactions-table">
         {this.renderTableHeaders()}
         <hr className="transaction-hr" />
-        <TransactionsList transactions={transactions} />
+        <TransactionsList transactions={filteredTransactions} />
       </div>
     );
   };
@@ -133,6 +142,98 @@ class Transactions extends Component {
     }
   };
 
+  onClickAllTransactions = () => {
+    const { activeFilter } = this.state;
+    if (activeFilter !== "allTransactions") {
+      this.setState({ activeFilter: "allTransactions" });
+    }
+  };
+
+  onClickCredit = () => {
+    const { activeFilter } = this.state;
+    if (activeFilter !== "credit") {
+      this.setState({ activeFilter: "credit" });
+    }
+  };
+
+  onClickDebit = () => {
+    const { activeFilter } = this.state;
+    if (activeFilter !== "debit") {
+      this.setState({ activeFilter: "debit" });
+    }
+  };
+
+  renderFilters = () => {
+    const { activeFilter } = this.state;
+
+    return (
+      <ul className="transaction-filters">
+        <li className="filter-button-container">
+          <button
+            type="button"
+            className={
+              activeFilter === "allTransactions"
+                ? "active-fitler-button"
+                : "fitler-button"
+            }
+            onClick={this.onClickAllTransactions}
+          >
+            All Transactions
+          </button>
+          <div
+            className={
+              activeFilter === "allTransactions"
+                ? "active-filter-line"
+                : "inactive-filter-line"
+            }
+          ></div>
+        </li>
+
+        <li className="filter-button-container">
+          <button
+            type="button"
+            className={
+              activeFilter === "credit"
+                ? "active-fitler-button"
+                : "fitler-button"
+            }
+            onClick={this.onClickCredit}
+          >
+            Credit
+          </button>
+          <div
+            className={
+              activeFilter === "credit"
+                ? "active-filter-line"
+                : "inactive-filter-line"
+            }
+          ></div>
+        </li>
+
+        <li className="filter-button-container">
+          <button
+            type="button"
+            className={
+              activeFilter === "debit"
+                ? "active-fitler-button"
+                : "fitler-button"
+            }
+            onClick={this.onClickDebit}
+          >
+            Debit
+          </button>
+          <div
+            className={
+              activeFilter === "debit"
+                ? "active-filter-line"
+                : "inactive-filter-line"
+            }
+          ></div>
+        </li>
+      </ul>
+    );
+  };
+
   render() {
     return (
       <div className="transactions">
@@ -141,7 +242,10 @@ class Transactions extends Component {
           <div className="desktop-sidebar">
             <Sidebar />
           </div>
-          <div className="transactions-stats">{this.renderApiStatusView()}</div>
+          <div className="transactions-stats">
+            {this.renderFilters()}
+            {this.renderApiStatusView()}
+          </div>
         </div>
       </div>
     );
