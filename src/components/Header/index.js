@@ -4,11 +4,10 @@ import Popup from "reactjs-popup";
 
 import { IoMenu, IoCloseSharp } from "react-icons/io5";
 
-import WebsiteLogo from "../WebsiteLogo";
-
 import "./index.css";
+import Sidebar from "../Sidebar";
 
-class NavBar extends Component {
+class Header extends Component {
   renderMobilePopupMenu = () => (
     <div className="mobile-menu-icon">
       <Popup trigger={<IoMenu size={32} />} modal>
@@ -25,14 +24,14 @@ class NavBar extends Component {
               </button>
             </div>
 
-            <h1>Menu Popup</h1>
+            <Sidebar />
           </div>
         )}
       </Popup>
     </div>
   );
 
-  renderDesktopHeaderView = () => {
+  renderHeaderAddTransaction = () => {
     const { match } = this.props;
     const { path } = match;
 
@@ -50,25 +49,30 @@ class NavBar extends Component {
     };
 
     return (
-      <div className="navbar-desktop-header">
+      <>
         <h1 className="navbar-title">{navbarContent()}</h1>
         <button className="add-transaction-button">+ Add Transaction</button>
-      </div>
+      </>
     );
   };
 
   render() {
     return (
-      <nav className="nav">
-        <div className="nav-logo">
-          <WebsiteLogo />
+      <>
+        <div className="mobile-menu-logo-header">
+          {this.renderMobilePopupMenu()}
+          <img
+            src="https://res.cloudinary.com/dtkwvlezz/image/upload/f_auto,q_auto/v1/MoneyMatters/website-logo"
+            alt="money matters logo"
+            className="header-logo"
+          />
         </div>
-
-        {this.renderMobilePopupMenu()}
-        {this.renderDesktopHeaderView()}
-      </nav>
+        <div className="desktop-header">
+          {this.renderHeaderAddTransaction()}
+        </div>
+      </>
     );
   }
 }
 
-export default withRouter(NavBar);
+export default withRouter(Header);

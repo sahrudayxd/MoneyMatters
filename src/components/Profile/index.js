@@ -1,6 +1,6 @@
 import { Component } from "react";
 
-import NavBar from "../NavBar";
+import Header from "../Header";
 import Sidebar from "../Sidebar";
 
 import "./index.css";
@@ -8,12 +8,15 @@ import "./index.css";
 class Profile extends Component {
   render() {
     return (
-      <>
-        <NavBar />
-        <div>
+      <div className="profile">
+        <div className="desktop-sidebar">
           <Sidebar />
         </div>
-      </>
+        <div className="profile-header-container">
+          <Header />
+          Profile
+        </div>
+      </div>
     );
   }
 }

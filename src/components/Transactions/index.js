@@ -3,7 +3,7 @@ import { Component } from "react";
 import Cookies from "js-cookie";
 import { ThreeDots } from "react-loader-spinner";
 
-import NavBar from "../NavBar";
+import Header from "../Header";
 import Sidebar from "../Sidebar";
 import Failure from "../Failure";
 import TransactionsList from "../TransactionsList";
@@ -237,12 +237,12 @@ class Transactions extends Component {
   render() {
     return (
       <div className="transactions">
-        <NavBar />
-        <div className="sidebar-transactions-container">
-          <div className="desktop-sidebar">
-            <Sidebar />
-          </div>
-          <div className="transactions-stats">
+        <div className="desktop-sidebar">
+          <Sidebar />
+        </div>
+        <div className="transactions-header-container">
+          <Header />
+          <div className="transactions-container">
             {this.renderFilters()}
             {this.renderApiStatusView()}
           </div>

@@ -1,0 +1,10 @@
+.not-found {
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+@media screen and (min-width: 768px) {
+  .not-found {
+    display: flex;
+  }
+}

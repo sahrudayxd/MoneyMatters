@@ -1,0 +1,15 @@
+.profile {
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+@media screen and (min-width: 768px) {
+  .profile {
+    display: flex;
+  }
+}
+
+.profile-header-container {
+  width: 100%;
+  border-left: #e2e4e6 solid 1px;
+}

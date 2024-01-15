@@ -2,8 +2,10 @@
   background-color: #f5f7fa;
 }
 
-.sidebar-dashboard-container {
-  display: flex;
+@media screen and (min-width: 768px) {
+  .dashboard {
+    display: flex;
+  }
 }
 
 .desktop-sidebar {
@@ -13,17 +15,25 @@
 @media screen and (min-width: 768px) {
   .desktop-sidebar {
     display: flex;
+    width: 300px;
+    flex-shrink: 0;
+    background-color: #ffffff;
   }
 }
 
-.dashboard-stats {
+.dashboard-header-container {
+  width: 100%;
+  border-left: #e2e4e6 solid 1px;
+}
+
+.dashboard-container {
   padding: 16px;
   width: 100%;
-  border: #e2e4e6 solid 1px;
+  box-sizing: border-box;
 }
 
 @media screen and (min-width: 768px) {
-  .dashboard-stats {
+  .dashboard-container {
     padding: 36px;
   }
 }

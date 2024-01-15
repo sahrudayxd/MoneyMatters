@@ -2,8 +2,6 @@ import { Component } from "react";
 import Cookies from "js-cookie";
 import { Redirect } from "react-router-dom";
 
-import WebsiteLogo from "../WebsiteLogo";
-
 import "./index.css";
 
 class Login extends Component {
@@ -121,9 +119,12 @@ class Login extends Component {
     return (
       <div className="login-flex-container">
         <form className="login-form" onSubmit={this.onSubmitForm}>
-          <div className="login-website-logo">
-            <WebsiteLogo />
-          </div>
+          <img
+            src="https://res.cloudinary.com/dtkwvlezz/image/upload/f_auto,q_auto/v1/MoneyMatters/website-logo"
+            alt="money matters logo"
+            className="login-website-logo"
+          />
+
           {this.renderUsernameField()}
           {this.renderPasswordField()}
 

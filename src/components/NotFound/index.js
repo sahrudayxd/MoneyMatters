@@ -1,6 +1,5 @@
 import { Component } from "react";
 
-import NavBar from "../NavBar";
 import Sidebar from "../Sidebar";
 
 import "./index.css";
@@ -8,12 +7,12 @@ import "./index.css";
 class NotFound extends Component {
   render() {
     return (
-      <>
-        <NavBar />
-        <div>
+      <div className="not-found">
+        <div className="desktop-sidebar">
           <Sidebar />
         </div>
-      </>
+        NotFound
+      </div>
     );
   }
 }
