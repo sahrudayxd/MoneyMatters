@@ -1,0 +1,13 @@
+.no-transactions-container {
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.no-transactions-msg {
+  color: #718ebf;
+  font-family: Roboto;
+  font-size: 16px;
+  text-align: center;
+}

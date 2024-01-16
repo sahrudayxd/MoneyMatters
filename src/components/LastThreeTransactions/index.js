@@ -4,6 +4,7 @@ import { ThreeDots } from "react-loader-spinner";
 
 import Failure from "../Failure";
 import TransactionsList from "../TransactionsList";
+import NoTransactions from "../NoTransactions";
 
 import "./index.css";
 
@@ -73,7 +74,11 @@ class LastThreeTransactions extends Component {
     const { transactions } = this.state;
     return (
       <div className="last-three-transactions">
-        <TransactionsList transactions={transactions} />
+        {transactions.length === 0 ? (
+          <NoTransactions />
+        ) : (
+          <TransactionsList transactions={transactions} />
+        )}
       </div>
     );
   };

@@ -7,6 +7,7 @@ import Header from "../Header";
 import Sidebar from "../Sidebar";
 import Failure from "../Failure";
 import TransactionsList from "../TransactionsList";
+import NoTransactions from "../NoTransactions";
 
 import "./index.css";
 
@@ -116,7 +117,11 @@ class Transactions extends Component {
       <div className="transactions-table">
         {this.renderTableHeaders()}
         <hr className="transaction-hr" />
-        <TransactionsList transactions={filteredTransactions} />
+        {filteredTransactions.length === 0 ? (
+          <NoTransactions />
+        ) : (
+          <TransactionsList transactions={filteredTransactions} />
+        )}
       </div>
     );
   };
