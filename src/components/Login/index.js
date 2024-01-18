@@ -1,14 +1,14 @@
 import { Component } from "react";
 import Cookies from "js-cookie";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 
 import "./index.css";
 
 class Login extends Component {
-  state = { username: "", password: "", showErrorMsg: false };
+  state = { email: "", password: "", showErrorMsg: false };
 
-  onChangeUsername = (event) => {
-    this.setState({ username: event.target.value });
+  onChangeEmail = (event) => {
+    this.setState({ email: event.target.value });
   };
 
   onChangePassword = (event) => {
@@ -16,27 +16,27 @@ class Login extends Component {
   };
 
   onSampleAdminClick = () => {
-    this.setState({ username: "admin@gmail.com", password: "Admin@123" });
+    this.setState({ email: "admin@gmail.com", password: "Admin@123" });
   };
 
   onSampleUserClick = () => {
-    this.setState({ username: "jane.doe@gmail.com", password: "janedoe@123" });
+    this.setState({ email: "jane.doe@gmail.com", password: "janedoe@123" });
   };
 
-  renderUsernameField = () => {
-    const { username } = this.state;
+  renderEmailField = () => {
+    const { email } = this.state;
 
     return (
       <div className="label-input-conatiner">
-        <label htmlFor="username" className="login-label">
-          USERNAME
+        <label htmlFor="email" className="login-label">
+          Email
         </label>
         <input
-          id="username"
-          value={username}
+          id="email"
+          value={email}
           className="login-input"
-          placeholder="Username"
-          onChange={this.onChangeUsername}
+          placeholder="Email"
+          onChange={this.onChangeEmail}
         />
       </div>
     );
@@ -74,7 +74,7 @@ class Login extends Component {
   };
 
   onValidateUserDetails = async () => {
-    const { username, password } = this.state;
+    const { email, password } = this.state;
 
     const loginUrl =
       "https://bursting-gelding-24.hasura.app/api/rest/get-user-id";
@@ -87,8 +87,8 @@ class Login extends Component {
           "g08A3qQy00y8yFDq3y6N1ZQnhOPOa4msdie5EtKS1hFStar01JzPKrtKEzYY2BtF",
       },
       body: JSON.stringify({
-        email: username,
-        password: password,
+        email,
+        password,
       }),
     });
 
@@ -109,10 +109,10 @@ class Login extends Component {
   };
 
   render() {
-    const userId = Cookies.get("money_matters_id");
-    if (userId !== undefined) {
-      return <Redirect to="/dashboard" />;
-    }
+    // const userId = Cookies.get("money_matters_id");
+    // // if (userId !== undefined) {
+    // //   return <Redirect to="/dashboard" />;
+    // // }
 
     const { showErrorMsg } = this.state;
 
@@ -125,7 +125,7 @@ class Login extends Component {
             className="login-website-logo"
           />
 
-          {this.renderUsernameField()}
+          {this.renderEmailField()}
           {this.renderPasswordField()}
 
           {showErrorMsg && (

@@ -15,6 +15,7 @@
 @media screen and (min-width: 768px) {
   .desktop-sidebar {
     display: flex;
+    justify-content: space-between;
     width: 300px;
     flex-shrink: 0;
     background-color: #ffffff;
