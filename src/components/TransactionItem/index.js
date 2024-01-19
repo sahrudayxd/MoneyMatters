@@ -35,7 +35,7 @@ const renderTransactionTypeIcon = (type) => {
 
 const renderRandomUserImageName = () => {
   const randomIndex = Math.ceil(Math.random() * dummyUserNames.length);
-  const userName = dummyUserNames[randomIndex];
+  const userName = dummyUserNames[randomIndex - 1];
   const userImg = `https://res.cloudinary.com/dtkwvlezz/image/upload/f_auto,q_auto/v1/MoneyMatters/dummyUsers/${randomIndex}`;
 
   return (

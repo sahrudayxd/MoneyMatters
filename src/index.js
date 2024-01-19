@@ -14,6 +14,17 @@ root.render(
   </BrowserRouter>
 );
 
+const originalWarn = console.warn;
+
+console.warn = function (...args) {
+  const arg = args && args[0];
+
+  if (arg && arg.includes("Attempting to load version '51' of Google Charts"))
+    return;
+
+  originalWarn(...args);
+};
+
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals

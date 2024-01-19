@@ -65,14 +65,6 @@ class Last7DaysCreditDebit extends Component {
     window.addEventListener("resize", this.handleResize);
   }
 
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.handleResize);
-  }
-
-  handleResize = () => {
-    this.fectch7DaysCreditDebitApi();
-  };
-
   fectch7DaysCreditDebitApi = () => {
     this.setState({ apiStatus: apiStatusConstants.inProgress });
 
