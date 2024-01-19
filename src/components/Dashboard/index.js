@@ -4,6 +4,7 @@ import Header from "../Header";
 import Sidebar from "../Sidebar";
 import TotalCreditDebit from "../TotalCreditDebit";
 import LastThreeTransactions from "../LastThreeTransactions";
+import Last7DaysCreditDebit from "../Last7DaysCreditDebit";
 
 import "./index.css";
 
@@ -20,6 +21,8 @@ class Dashboard extends Component {
             <TotalCreditDebit />
             <h1 className="dashboard-title">Last Transactions</h1>
             <LastThreeTransactions />
+            <h1 className="dashboard-title">Debit & Credit Overview</h1>
+            <Last7DaysCreditDebit />
           </div>
         </div>
       </div>

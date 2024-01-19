@@ -1,6 +1,6 @@
 import { Component } from "react";
 import Cookies from "js-cookie";
-// import { Redirect } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 import "./index.css";
 
@@ -109,10 +109,10 @@ class Login extends Component {
   };
 
   render() {
-    // const userId = Cookies.get("money_matters_id");
-    // // if (userId !== undefined) {
-    // //   return <Redirect to="/dashboard" />;
-    // // }
+    const userId = Cookies.get("money_matters_id");
+    if (userId !== undefined) {
+      return <Redirect to="/dashboard" />;
+    }
 
     const { showErrorMsg } = this.state;
 

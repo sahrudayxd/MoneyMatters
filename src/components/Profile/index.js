@@ -181,7 +181,6 @@ class Profile extends Component {
   };
 
   render() {
-    console.log("Render Method");
     return (
       <div className="profile">
         <div className="desktop-sidebar">
