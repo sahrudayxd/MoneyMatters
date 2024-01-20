@@ -22,13 +22,14 @@
   width: 100vw;
   height: 100vh;
   background-color: transparent;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(12px);
 }
 
 .close-icon-container {
   padding: 28px;
+  padding-left: 48px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 
 .close-menu-button {
@@ -67,20 +68,14 @@
 }
 
 .add-transaction-button {
-  display: none;
-}
-
-@media screen and (min-width: 768px) {
-  .add-transaction-button {
-    display: block;
-    outline: none;
-    border: none;
-    cursor: pointer;
-    border-radius: 12px;
-    background: #2d60ff;
-    padding: 10px 12px;
-    color: #ffffff;
-    font-family: Roboto;
-    font-size: 15px;
-  }
+  display: block;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  border-radius: 12px;
+  background: #2d60ff;
+  padding: 10px 12px;
+  color: #ffffff;
+  font-family: Roboto;
+  font-size: 15px;
 }

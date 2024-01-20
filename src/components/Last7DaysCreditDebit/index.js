@@ -62,7 +62,6 @@ class Last7DaysCreditDebit extends Component {
 
   componentDidMount() {
     this.fectch7DaysCreditDebitApi();
-    window.addEventListener("resize", this.handleResize);
   }
 
   fectch7DaysCreditDebitApi = () => {
@@ -146,6 +145,10 @@ class Last7DaysCreditDebit extends Component {
     const isMobile =
       window.innerWidth <= 560 ||
       (window.innerWidth >= 768 && window.innerWidth <= 889);
+
+    const chartOptions = {
+      colors: ["#16DBAA", "#FE5C73"],
+    };
     return (
       <div className="chart-container">
         <Chart
@@ -153,6 +156,7 @@ class Last7DaysCreditDebit extends Component {
           width="100%"
           height="200px"
           data={isMobile ? chartData.slice(0, 4) : chartData}
+          options={chartOptions}
         />
       </div>
     );

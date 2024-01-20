@@ -6,18 +6,37 @@ import { IoMenu, IoCloseSharp } from "react-icons/io5";
 
 import "./index.css";
 import Sidebar from "../Sidebar";
+import AddTransaction from "../AddTransaction";
 
 class Header extends Component {
+  renderAddTransactionButton = (closeMenu) => {
+    return (
+      <Popup
+        trigger={
+          <button className="add-transaction-button" onClick={closeMenu}>
+            + Add Transaction
+          </button>
+        }
+        modal
+      >
+        {(close) => {
+          return <AddTransaction close={close} />;
+        }}
+      </Popup>
+    );
+  };
+
   renderMobilePopupMenu = () => (
     <div className="mobile-menu-icon">
       <Popup trigger={<IoMenu size={32} />} modal>
-        {(close) => (
+        {(closeMenu) => (
           <div className="mobile-menu-popup">
             <div className="close-icon-container">
+              {this.renderAddTransactionButton(closeMenu)}
               <button
                 className="close-menu-button"
                 type="button"
-                onClick={close}
+                onClick={closeMenu}
               >
                 <IoCloseSharp size={32} />
                 {` `}
@@ -51,7 +70,7 @@ class Header extends Component {
     return (
       <>
         <h1 className="navbar-title">{navbarContent()}</h1>
-        <button className="add-transaction-button">+ Add Transaction</button>
+        {this.renderAddTransactionButton()}
       </>
     );
   };
