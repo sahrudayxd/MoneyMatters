@@ -29,7 +29,7 @@
   padding: 28px;
   padding-left: 48px;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 .close-menu-button {

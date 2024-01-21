@@ -375,7 +375,7 @@ class AddTransaction extends Component {
 
   render() {
     return (
-      <div className="add-transaction-popup">
+      <div className="transaction-popup">
         {this.renderTranactionStatusView()}
       </div>
     );

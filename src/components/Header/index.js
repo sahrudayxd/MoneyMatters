@@ -1,12 +1,13 @@
 import { Component } from "react";
 import { withRouter } from "react-router-dom";
 import Popup from "reactjs-popup";
+import Cookies from "js-cookie";
 
 import { IoMenu, IoCloseSharp } from "react-icons/io5";
 
 import "./index.css";
 import Sidebar from "../Sidebar";
-import AddTransaction from "../AddTransaction";
+import AddTransaction from "../AddUpdateTransaction/addTransaction";
 
 class Header extends Component {
   renderAddTransactionButton = (closeMenu) => {
@@ -32,7 +33,6 @@ class Header extends Component {
         {(closeMenu) => (
           <div className="mobile-menu-popup">
             <div className="close-icon-container">
-              {this.renderAddTransactionButton(closeMenu)}
               <button
                 className="close-menu-button"
                 type="button"
@@ -51,6 +51,7 @@ class Header extends Component {
   );
 
   renderHeaderAddTransaction = () => {
+    const userId = Cookies.get("money_matters_id");
     const { match } = this.props;
     const { path } = match;
 
@@ -70,7 +71,7 @@ class Header extends Component {
     return (
       <>
         <h1 className="navbar-title">{navbarContent()}</h1>
-        {this.renderAddTransactionButton()}
+        {userId !== "3" && this.renderAddTransactionButton()}
       </>
     );
   };
