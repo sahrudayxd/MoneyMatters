@@ -9,6 +9,26 @@ import Last7DaysCreditDebit from "../Last7DaysCreditDebit";
 import "./index.css";
 
 class Dashboard extends Component {
+  componentDidMount() {
+    document.addEventListener(
+      "updateDashboardComponents",
+      this.fetchDashboardAPIs
+    );
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener(
+      "updateDashboardComponents",
+      this.fetchDashboardAPIs
+    );
+  }
+
+  fetchDashboardAPIs = () => {
+    document.dispatchEvent(new Event("lastThreeTransactionsUpdate"));
+    document.dispatchEvent(new Event("totalDebitCreditUpdate"));
+    document.dispatchEvent(new Event("last7DaysTotalsUpdate"));
+  };
+
   render() {
     return (
       <div className="dashboard">

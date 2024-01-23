@@ -1,5 +1,4 @@
 import { Component } from "react";
-
 import Cookies from "js-cookie";
 import { ThreeDots } from "react-loader-spinner";
 
@@ -28,6 +27,11 @@ class Transactions extends Component {
 
   componentDidMount() {
     this.fectchTransactions();
+    document.addEventListener("updateTransactions", this.fectchTransactions);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("updateTransactions", this.fectchTransactions);
   }
 
   fectchTransactions = async () => {
@@ -35,7 +39,7 @@ class Transactions extends Component {
     try {
       const userId = Cookies.get("money_matters_id");
       const response = await fetch(
-        `https://bursting-gelding-24.hasura.app/api/rest/all-transactions?limit=100&offset=0`,
+        `https://bursting-gelding-24.hasura.app/api/rest/all-transactions?limit=200&offset=0`,
         {
           method: "GET",
           headers: {
@@ -50,15 +54,17 @@ class Transactions extends Component {
       const data = await response.json();
       this.setState({
         apiStatus: apiStatusConstants.success,
-        transactions: data.transactions.map((transaction) => ({
-          amount: transaction.amount,
-          category: transaction.category,
-          date: transaction.date,
-          id: transaction.id,
-          transactionName: transaction.transaction_name,
-          type: transaction.type,
-          userId: transaction.user_id,
-        })),
+        transactions: data.transactions
+          .map((transaction) => ({
+            amount: transaction.amount,
+            category: transaction.category,
+            date: transaction.date,
+            id: transaction.id,
+            transactionName: transaction.transaction_name,
+            type: transaction.type,
+            userId: transaction.user_id,
+          }))
+          .sort((a, b) => b.id - a.id),
       });
     } catch (error) {
       this.setState({
@@ -120,7 +126,10 @@ class Transactions extends Component {
         {filteredTransactions.length === 0 ? (
           <NoTransactions />
         ) : (
-          <TransactionsList transactions={filteredTransactions} />
+          <TransactionsList
+            transactions={filteredTransactions}
+            fectchTransactions={this.fectchTransactions}
+          />
         )}
       </div>
     );

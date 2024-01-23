@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Cookies from "js-cookie";
+import { withRouter } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
 
 import { IoCloseSharp } from "react-icons/io5";
@@ -201,6 +202,17 @@ class AddTransaction extends Component {
     );
   };
 
+  updatePathAPIData = () => {
+    const { location } = this.props;
+    const { pathname } = location;
+
+    if (pathname === "/dashboard") {
+      document.dispatchEvent(new Event("updateDashboardComponents"));
+    } else if (pathname === "/transactions") {
+      document.dispatchEvent(new Event("updateTransactions"));
+    }
+  };
+
   fetchAddTransactionApi = async () => {
     try {
       const { transactionName, transactionType, category, amount, dateTime } =
@@ -231,9 +243,12 @@ class AddTransaction extends Component {
       const data = await response.json();
 
       if (typeof data.insert_transactions_one.id === "number") {
-        this.setState({
-          transactionStatus: transactionStatusConstants.success,
-        });
+        this.setState(
+          {
+            transactionStatus: transactionStatusConstants.success,
+          },
+          this.updatePathAPIData
+        );
       }
     } catch (error) {
       this.setState({
@@ -382,4 +397,4 @@ class AddTransaction extends Component {
   }
 }
 
-export default AddTransaction;
+export default withRouter(AddTransaction);

@@ -1,5 +1,6 @@
 import { Component } from "react";
 import Cookies from "js-cookie";
+import { withRouter } from "react-router-dom";
 import { ThreeDots } from "react-loader-spinner";
 
 import { IoCloseSharp } from "react-icons/io5";
@@ -207,6 +208,17 @@ class UpdateTransaction extends Component {
     );
   };
 
+  updatePathAPIData = () => {
+    const { location } = this.props;
+    const { pathname } = location;
+
+    if (pathname === "/dashboard") {
+      document.dispatchEvent(new Event("updateDashboardComponents"));
+    } else if (pathname === "/transactions") {
+      document.dispatchEvent(new Event("updateTransactions"));
+    }
+  };
+
   fetchUpdateTransactionApi = async () => {
     try {
       const { transactionName, transactionType, category, amount, dateTime } =
@@ -239,9 +251,12 @@ class UpdateTransaction extends Component {
       const data = await response.json();
 
       if (typeof data.update_transactions_by_pk.id === "number") {
-        this.setState({
-          transactionStatus: transactionStatusConstants.success,
-        });
+        this.setState(
+          {
+            transactionStatus: transactionStatusConstants.success,
+          },
+          this.updatePathAPIData
+        );
       }
     } catch (error) {
       this.setState({
@@ -310,6 +325,7 @@ class UpdateTransaction extends Component {
 
   renderSuccessView = () => {
     const { close } = this.props;
+
     return (
       <div className="transaction-success">
         <div className="transaction-success-header">
@@ -371,4 +387,4 @@ class UpdateTransaction extends Component {
   }
 }
 
-export default UpdateTransaction;
+export default withRouter(UpdateTransaction);

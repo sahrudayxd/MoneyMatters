@@ -22,10 +22,16 @@ class TotalCreditDebit extends Component {
   };
 
   componentDidMount() {
-    this.fectchTotalCreditDebitApi();
+    this.fectchTotals();
+
+    document.addEventListener("totalDebitCreditUpdate", this.fectchTotals);
   }
 
-  fectchTotalCreditDebitApi = () => {
+  componentWillUnmount() {
+    document.removeEventListener("totalDebitCreditUpdate", this.fectchTotals);
+  }
+
+  fectchTotals = () => {
     this.setState({ apiStatus: apiStatusConstants.inProgress });
 
     const userId = Cookies.get("money_matters_id");
@@ -142,7 +148,7 @@ class TotalCreditDebit extends Component {
 
   renderFailureView = () => (
     <div className="credit-debit-loader-and-failure">
-      <Failure fetchApi={this.fectchTotalCreditDebitApi} />
+      <Failure fetchApi={this.fectchTotals} />
     </div>
   );
 

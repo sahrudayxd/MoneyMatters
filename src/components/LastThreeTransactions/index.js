@@ -24,6 +24,18 @@ class LastThreeTransactions extends Component {
 
   componentDidMount() {
     this.fectchTransactions();
+
+    document.addEventListener(
+      "lastThreeTransactionsUpdate",
+      this.fectchTransactions
+    );
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener(
+      "lastThreeTransactionsUpdate",
+      this.fectchTransactions
+    );
   }
 
   fectchTransactions = async () => {
@@ -31,7 +43,7 @@ class LastThreeTransactions extends Component {
     try {
       const userId = Cookies.get("money_matters_id");
       const response = await fetch(
-        `https://bursting-gelding-24.hasura.app/api/rest/all-transactions?limit=3&offset=0`,
+        `https://bursting-gelding-24.hasura.app/api/rest/all-transactions?limit=100&offset=0`,
         {
           method: "GET",
           headers: {
@@ -46,15 +58,18 @@ class LastThreeTransactions extends Component {
       const data = await response.json();
       this.setState({
         apiStatus: apiStatusConstants.success,
-        transactions: data.transactions.map((transaction) => ({
-          amount: transaction.amount,
-          category: transaction.category,
-          date: transaction.date,
-          id: transaction.id,
-          transactionName: transaction.transaction_name,
-          type: transaction.type,
-          userId: transaction.user_id,
-        })),
+        transactions: data.transactions
+          .map((transaction) => ({
+            amount: transaction.amount,
+            category: transaction.category,
+            date: transaction.date,
+            id: transaction.id,
+            transactionName: transaction.transaction_name,
+            type: transaction.type,
+            userId: transaction.user_id,
+          }))
+          .sort((a, b) => b.id - a.id)
+          .slice(0, 3),
       });
     } catch (error) {
       this.setState({

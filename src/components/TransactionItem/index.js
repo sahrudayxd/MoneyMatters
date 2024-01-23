@@ -1,6 +1,7 @@
 import { parseISO, format } from "date-fns";
 import Popup from "reactjs-popup";
 import UpdateTransaction from "../AddUpdateTransaction/updateTransaction";
+import DeleteTransaction from "../DeleteTransaction";
 
 import { PiArrowCircleDownThin, PiArrowCircleUpThin } from "react-icons/pi";
 import { GoPencil } from "react-icons/go";
@@ -107,7 +108,7 @@ export const AdminTransactionItem = (props) => {
 
 export const UserTransactionItem = (props) => {
   const { transaction, isLastTransaction } = props;
-  const { type, transactionName, amount, date, category } = transaction;
+  const { id, type, transactionName, amount, date, category } = transaction;
   const formattedDate = format(parseISO(date), "dd-MM-yy");
 
   const renderEditButton = () => (
@@ -123,6 +124,21 @@ export const UserTransactionItem = (props) => {
         return (
           <UpdateTransaction close={close} transactionDetails={transaction} />
         );
+      }}
+    </Popup>
+  );
+
+  const renderDeleteButton = () => (
+    <Popup
+      trigger={
+        <button className="edit-delete-button">
+          <MdDeleteOutline size={20} color="#FE5C73" />
+        </button>
+      }
+      modal
+    >
+      {(close) => {
+        return <DeleteTransaction close={close} transactionId={id} />;
       }}
     </Popup>
   );
@@ -150,9 +166,7 @@ export const UserTransactionItem = (props) => {
         {renderAmount(type, amount)}
         <div className="edit-delete-buttons-container">
           {renderEditButton()}
-          <button className="edit-delete-button">
-            <MdDeleteOutline size={20} color="#FE5C73" />
-          </button>
+          {renderDeleteButton()}
         </div>
       </li>
       {!isLastTransaction && <hr className="transaction-hr" />}

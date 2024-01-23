@@ -62,6 +62,18 @@ class Last7DaysCreditDebit extends Component {
 
   componentDidMount() {
     this.fectch7DaysCreditDebitApi();
+
+    document.addEventListener(
+      "last7DaysTotalsUpdate",
+      this.fectch7DaysCreditDebitApi
+    );
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener(
+      "last7DaysTotalsUpdate",
+      this.fectch7DaysCreditDebitApi
+    );
   }
 
   fectch7DaysCreditDebitApi = () => {

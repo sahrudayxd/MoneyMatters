@@ -1,0 +1,113 @@
+.delete-transaction-popup {
+  width: 100vw;
+  height: 100vh;
+  background: rgba(52, 64, 84, 0.7);
+  backdrop-filter: blur(10px);
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.delete-transaction {
+  background-color: #fff;
+  padding: 16px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 540px;
+  display: flex;
+  align-items: flex-start;
+}
+
+@media screen and (min-width: 768px) {
+  .delete-transaction {
+    padding: 24px;
+  }
+}
+
+.delete-icon-container {
+  border: solid 6px #fef3c7;
+  border-radius: 100px;
+  background-color: #fde68a;
+  padding: 4px 6px;
+}
+
+@media screen and (min-width: 768px) {
+  .delete-icon-container {
+    border: solid 8px #fef3c7;
+    border-radius: 100px;
+    background-color: #fde68a;
+    padding: 6px 8px;
+  }
+}
+
+.delete-margin-container {
+  margin-left: 12px;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .delete-margin-container {
+    margin-left: 16px;
+  }
+}
+
+.delete-popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.delete-warning {
+  color: #333b69;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0px;
+  align-self: flex-end;
+}
+
+.delete-close-button {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  background-color: transparent;
+  padding: 0px;
+  margin: 0px;
+}
+
+.delete-msg {
+  color: #505887;
+  font-family: Roboto;
+  font-size: 14px;
+}
+
+.yes-delete-button {
+  margin-top: 12px;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: #dc2626;
+  color: #fff;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.no-leave-button {
+  margin-top: 12px;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid #cbd5e1;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: transparent;
+  color: #333b69;
+  font-family: Roboto;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 16px;
+}
