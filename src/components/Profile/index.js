@@ -25,7 +25,6 @@ class Profile extends Component {
 
   componentDidMount() {
     if (this.state.apiStatus === apiStatusConstants.initial) {
-      console.log("Component mounted");
       this.fectchProfileDetails();
     }
   }
@@ -88,7 +87,6 @@ class Profile extends Component {
       city,
       postalCode,
     } = profileDetails;
-    console.log("Render Profile Details");
 
     const randomIndex = Math.ceil(Math.random() * 12);
 

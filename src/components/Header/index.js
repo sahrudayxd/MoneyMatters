@@ -29,7 +29,14 @@ class Header extends Component {
 
   renderMobilePopupMenu = () => (
     <div className="mobile-menu-icon">
-      <Popup trigger={<IoMenu size={32} />} modal>
+      <Popup
+        trigger={
+          <button className="open-menu-button" type="button">
+            <IoMenu size={32} />
+          </button>
+        }
+        modal
+      >
         {(closeMenu) => (
           <div className="mobile-menu-popup">
             <div className="close-icon-container">
