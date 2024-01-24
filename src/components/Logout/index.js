@@ -94,7 +94,7 @@ class Logout extends Component {
           <div>
             <p className="logout-username">{name}</p>
             <p className="logout-email">
-              {email.charAt(0).toUpperCase() + email.slice(1)}
+              {email?.charAt(0).toUpperCase() + email?.slice(1)}
             </p>
           </div>
         </div>

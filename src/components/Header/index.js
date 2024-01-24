@@ -3,11 +3,10 @@ import { withRouter } from "react-router-dom";
 import Popup from "reactjs-popup";
 import Cookies from "js-cookie";
 
-import SidebarOptions from "../SidebarOptions";
 import AddTransaction from "../AddUpdateTransaction/addTransaction";
-import Logout from "../Logout";
+import MobileMenuPopup from "../MobileMenuPopup";
 
-import { IoMenu, IoCloseSharp } from "react-icons/io5";
+import { IoMenu } from "react-icons/io5";
 
 import "./index.css";
 
@@ -40,24 +39,7 @@ class Header extends Component {
         modal
         closeOnDocumentClick={false}
       >
-        {(closeMenu) => (
-          <div className="mobile-menu-popup">
-            <div>
-              <div className="close-icon-container">
-                <button
-                  className="close-menu-button"
-                  type="button"
-                  onClick={closeMenu}
-                >
-                  <IoCloseSharp size={32} />
-                  {` `}
-                </button>
-              </div>
-              <SidebarOptions />
-            </div>
-            <Logout />
-          </div>
-        )}
+        {(closeMenu) => <MobileMenuPopup closeMenu={closeMenu} />}
       </Popup>
     </div>
   );

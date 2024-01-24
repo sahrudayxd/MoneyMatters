@@ -18,25 +18,7 @@
   width: 200px;
 }
 
-.mobile-menu-popup {
-  width: 100vw;
-  height: 100vh;
-  background-color: transparent;
-  backdrop-filter: blur(12px);
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.close-icon-container {
-  padding: 28px;
-  padding-left: 48px;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.open-menu-button,
-.close-menu-button {
+.open-menu-button {
   outline: none;
   cursor: pointer;
   border: none;
