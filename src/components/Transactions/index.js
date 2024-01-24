@@ -3,7 +3,8 @@ import Cookies from "js-cookie";
 import { ThreeDots } from "react-loader-spinner";
 
 import Header from "../Header";
-import Sidebar from "../Sidebar";
+import SidebarOptions from "../SidebarOptions";
+import Logout from "../Logout";
 import Failure from "../Failure";
 import TransactionsList from "../TransactionsList";
 import NoTransactions from "../NoTransactions";
@@ -252,7 +253,8 @@ class Transactions extends Component {
     return (
       <div className="transactions">
         <div className="desktop-sidebar">
-          <Sidebar />
+          <SidebarOptions />
+          <Logout />
         </div>
         <div className="transactions-header-container">
           <Header />

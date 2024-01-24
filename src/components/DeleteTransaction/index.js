@@ -43,7 +43,7 @@ class DeleteTransaction extends Component {
 
   renderInProgressView = () => (
     <div className="transaction-in-progress">
-      <h1 className="transaction-title">Deleting Transaction.</h1>
+      <h1 className="transaction-title">Deleting Transaction</h1>
       <ThreeDots />
     </div>
   );

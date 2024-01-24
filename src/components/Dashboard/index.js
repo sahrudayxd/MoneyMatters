@@ -1,7 +1,8 @@
 import { Component } from "react";
 
 import Header from "../Header";
-import Sidebar from "../Sidebar";
+import SidebarOptions from "../SidebarOptions";
+import Logout from "../Logout";
 import TotalCreditDebit from "../TotalCreditDebit";
 import LastThreeTransactions from "../LastThreeTransactions";
 import Last7DaysCreditDebit from "../Last7DaysCreditDebit";
@@ -33,7 +34,8 @@ class Dashboard extends Component {
     return (
       <div className="dashboard">
         <div className="desktop-sidebar">
-          <Sidebar />
+          <SidebarOptions />
+          <Logout />
         </div>
         <div className="dashboard-header-container">
           <Header />

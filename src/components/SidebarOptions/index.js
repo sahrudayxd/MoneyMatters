@@ -7,7 +7,7 @@ import { CgProfile } from "react-icons/cg";
 
 import "./index.css";
 
-const Sidebar = (props) => {
+const SidebarOptions = (props) => {
   const { match } = props;
   const { path } = match;
   const userId = Cookies.get("money_matters_id");
@@ -80,4 +80,4 @@ const Sidebar = (props) => {
   );
 };
 
-export default withRouter(Sidebar);
+export default withRouter(SidebarOptions);

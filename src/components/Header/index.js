@@ -3,11 +3,13 @@ import { withRouter } from "react-router-dom";
 import Popup from "reactjs-popup";
 import Cookies from "js-cookie";
 
+import SidebarOptions from "../SidebarOptions";
+import AddTransaction from "../AddUpdateTransaction/addTransaction";
+import Logout from "../Logout";
+
 import { IoMenu, IoCloseSharp } from "react-icons/io5";
 
 import "./index.css";
-import Sidebar from "../Sidebar";
-import AddTransaction from "../AddUpdateTransaction/addTransaction";
 
 class Header extends Component {
   renderAddTransactionButton = (closeMenu) => {
@@ -36,21 +38,24 @@ class Header extends Component {
           </button>
         }
         modal
+        closeOnDocumentClick={false}
       >
         {(closeMenu) => (
           <div className="mobile-menu-popup">
-            <div className="close-icon-container">
-              <button
-                className="close-menu-button"
-                type="button"
-                onClick={closeMenu}
-              >
-                <IoCloseSharp size={32} />
-                {` `}
-              </button>
+            <div>
+              <div className="close-icon-container">
+                <button
+                  className="close-menu-button"
+                  type="button"
+                  onClick={closeMenu}
+                >
+                  <IoCloseSharp size={32} />
+                  {` `}
+                </button>
+              </div>
+              <SidebarOptions />
             </div>
-
-            <Sidebar />
+            <Logout />
           </div>
         )}
       </Popup>

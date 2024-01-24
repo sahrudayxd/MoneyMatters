@@ -3,9 +3,9 @@ import Cookies from "js-cookie";
 import { ThreeDots } from "react-loader-spinner";
 
 import Failure from "../Failure";
-
 import Header from "../Header";
-import Sidebar from "../Sidebar";
+import SidebarOptions from "../SidebarOptions";
+import Logout from "../Logout";
 
 import "./index.css";
 
@@ -182,7 +182,8 @@ class Profile extends Component {
     return (
       <div className="profile">
         <div className="desktop-sidebar">
-          <Sidebar />
+          <SidebarOptions />
+          <Logout />
         </div>
         <div className="profile-header-container">
           <Header />

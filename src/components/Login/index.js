@@ -66,10 +66,32 @@ class Login extends Component {
     this.setState({ showErrorMsg: true });
   };
 
-  authenticateSuccess = (userId) => {
+  authenticateSuccess = async (userId) => {
     Cookies.set("money_matters_id", userId, { expires: 30 });
-
     const { history } = this.props;
+
+    const profileUrl = `https://bursting-gelding-24.hasura.app/api/rest/profile`;
+    const profileResponse = await fetch(profileUrl, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        "x-hasura-admin-secret":
+          "g08A3qQy00y8yFDq3y6N1ZQnhOPOa4msdie5EtKS1hFStar01JzPKrtKEzYY2BtF",
+        "x-hasura-role": "user",
+        "x-hasura-user-id": userId,
+      },
+    });
+
+    const profileData = await profileResponse.json();
+    const userDetails = profileData.users[0];
+    this.setState({
+      email: userDetails.email,
+      name: userDetails.name,
+    });
+
+    localStorage.setItem("money_matters_name", userDetails.name);
+    localStorage.setItem("money_matters_email", userDetails.email);
+
     history.replace("/dashboard");
   };
 

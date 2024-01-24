@@ -1,6 +1,6 @@
 import { Component } from "react";
 
-import Sidebar from "../Sidebar";
+import SidebarOptions from "../SidebarOptions";
 
 import "./index.css";
 
@@ -9,7 +9,7 @@ class NotFound extends Component {
     return (
       <div className="not-found">
         <div className="desktop-sidebar">
-          <Sidebar />
+          <SidebarOptions />
         </div>
         NotFound
       </div>
