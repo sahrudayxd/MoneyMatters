@@ -64,7 +64,7 @@ class Header extends Component {
 
     return (
       <>
-        <h1 className="navbar-title">{navbarContent()}</h1>
+        <h1 className="header-title">{navbarContent()}</h1>
         {userId !== "3" && this.renderAddTransactionButton()}
       </>
     );
@@ -74,12 +74,12 @@ class Header extends Component {
     return (
       <>
         <div className="mobile-menu-logo-header">
-          {this.renderMobilePopupMenu()}
           <img
             src="https://res.cloudinary.com/dtkwvlezz/image/upload/f_auto,q_auto/v1/MoneyMatters/website-logo"
             alt="money matters logo"
             className="header-logo"
           />
+          {this.renderMobilePopupMenu()}
         </div>
         <div className="desktop-header">
           {this.renderHeaderAddTransaction()}

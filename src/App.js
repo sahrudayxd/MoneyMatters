@@ -17,6 +17,9 @@ function App() {
       <ProtectedRoute exact path="/transactions" component={Transactions} />
       <ProtectedRoute exact path="/profile" component={Profile} />
       <Route exact path="/not-found" component={NotFound} />
+      <Route exact path="/" component={NotFound}>
+        <Redirect to="/dashboard" />
+      </Route>
       <Redirect to="/not-found" />
     </Switch>
   );

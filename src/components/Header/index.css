@@ -15,7 +15,7 @@
 }
 
 .header-logo {
-  width: 200px;
+  width: 148px;
 }
 
 .open-menu-button {
@@ -30,7 +30,6 @@
 .desktop-header {
   box-sizing: border-box;
   padding: 16px;
-  padding-bottom: 0px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -41,18 +40,26 @@
 @media screen and (min-width: 768px) {
   .desktop-header {
     background-color: #ffffff;
-    padding: 24px 36px;
+    padding: 24px;
     border-top: none;
     border-bottom: #e2e4e6 solid 1px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    height: 85.33px;
   }
 }
 
-.navbar-title {
+.header-title {
   color: #343c6a;
   font-family: Roboto;
-  font-size: 24px;
+  font-size: 20px;
   font-weight: 600;
   margin: 0px;
+}
+
+@media screen and (min-width: 768px) {
+  .header-title {
+    font-size: 24px;
+  }
 }
 
 .add-transaction-button {
@@ -65,5 +72,5 @@
   padding: 10px 12px;
   color: #ffffff;
   font-family: Roboto;
-  font-size: 15px;
+  font-size: 14px;
 }

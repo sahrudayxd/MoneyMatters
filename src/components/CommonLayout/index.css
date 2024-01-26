@@ -1,0 +1,48 @@
+.common-layout {
+  background-color: #f5f7fa;
+  min-height: 100vh;
+}
+
+@media screen and (min-width: 768px) {
+  .common-layout {
+    display: flex;
+  }
+}
+
+.desktop-sidebar {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .desktop-sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 270px;
+    flex-shrink: 0;
+    background-color: #ffffff;
+    height: 100vh;
+  }
+}
+
+.header-path-container {
+  width: 100%;
+  border-left: #e2e4e6 solid 1px;
+}
+
+.path-container {
+  padding: 16px;
+  padding-top: 0px;
+  width: 100%;
+  box-sizing: border-box;
+  height: calc(100vh - 127.33px);
+  overflow-y: scroll;
+}
+
+@media screen and (min-width: 768px) {
+  .path-container {
+    padding: 32px;
+    height: calc(100vh - 85.33px);
+    overflow-y: scroll;
+  }
+}

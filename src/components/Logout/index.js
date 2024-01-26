@@ -67,7 +67,7 @@ class Logout extends Component {
       <Popup
         trigger={
           <button className="logout-popup-button">
-            <FiLogOut size={30} color="#FE5C73" />
+            <FiLogOut size={26} color="#FE5C73" />
           </button>
         }
         modal

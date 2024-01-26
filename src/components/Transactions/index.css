@@ -1,40 +1,60 @@
-.transactions {
-  background-color: #f5f7fa;
-  min-height: 100vh;
-}
-
-@media screen and (min-width: 768px) {
-  .transactions {
-    display: flex;
-  }
-}
-
-.transactions-header-container {
-  width: 100%;
-  border-left: #e2e4e6 solid 1px;
-}
-
-.transactions-container {
-  padding: 16px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-@media screen and (min-width: 768px) {
-  .transactions-container {
-    padding: 36px;
-  }
-}
-
-.transactions-failure-loader {
+.transaction-filters {
+  list-style-type: none;
   display: flex;
-  width: 100%;
-  height: 70vh;
+  padding: 0px;
+  padding-bottom: 12px;
+  margin: 6px 0px;
+}
+
+@media screen and (min-width: 768px) {
+  .transaction-filters {
+    margin: 0px;
+    margin-bottom: 12px;
+  }
+}
+
+.filter-button-container {
+  display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: #ffffff;
-  border-radius: 16px;
+  margin-right: 12px;
+}
+
+.active-fitler-button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: #2d60ff;
+  font-family: Roboto;
+  font-size: 16px;
+  padding: 0px 10px;
+  margin-bottom: 4px;
+}
+
+.fitler-button {
+  background-color: transparent;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  color: #718ebf;
+  font-family: Roboto;
+  font-size: 16px;
+  padding: 0px 10px;
+  margin-bottom: 4px;
+}
+
+.inactive-filter-line {
+  width: 100%;
+  height: 4px;
+  flex-shrink: 0;
+}
+
+.active-filter-line {
+  width: 100%;
+  height: 4px;
+  flex-shrink: 0;
+  border-radius: 10px 10px 0px 0px;
+  background: #2d60ff;
 }
 
 .transactions-table {
@@ -58,7 +78,7 @@
 .table-header {
   color: #343c6a;
   font-family: Roboto;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: 500;
   margin: 0px 0px 8px 0px;
   box-sizing: border-box;
@@ -66,6 +86,7 @@
 
 @media screen and (min-width: 1050px) {
   .table-header {
+    font-size: 16px;
     margin: 12px 0px;
   }
 }
@@ -113,7 +134,6 @@
   .admin-date-header {
     display: block;
     width: 20%;
-    padding-left: 6px;
   }
 }
 
@@ -159,7 +179,6 @@
   .user-date-header {
     display: block;
     width: 20%;
-    padding-left: 6px;
   }
 }
 
@@ -174,54 +193,13 @@
   }
 }
 
-.transaction-filters {
-  list-style-type: none;
+.transactions-failure-loader {
   display: flex;
-  padding: 0px;
-  padding-bottom: 12px;
-  margin: 6px 0px;
-}
-
-.filter-button-container {
-  display: flex;
+  width: 100%;
+  height: 70vh;
   flex-direction: column;
-  margin-right: 12px;
-}
-
-.active-fitler-button {
-  background-color: transparent;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  color: #2d60ff;
-  font-family: Roboto;
-  font-size: 16px;
-  padding: 0px 10px;
-  margin-bottom: 4px;
-}
-
-.fitler-button {
-  background-color: transparent;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  color: #718ebf;
-  font-family: Roboto;
-  font-size: 16px;
-  padding: 0px 10px;
-  margin-bottom: 4px;
-}
-
-.inactive-filter-line {
-  width: 100%;
-  height: 4px;
-  flex-shrink: 0;
-}
-
-.active-filter-line {
-  width: 100%;
-  height: 4px;
-  flex-shrink: 0;
-  border-radius: 10px 10px 0px 0px;
-  background: #2d60ff;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+  border-radius: 16px;
 }

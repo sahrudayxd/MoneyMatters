@@ -2,6 +2,7 @@
   padding: 24px;
   display: flex;
   justify-content: space-between;
+  padding-bottom: 12vh;
 }
 
 @media screen and (min-width: 768px) {
@@ -17,7 +18,7 @@
 }
 
 .logout-profile-img {
-  width: 48px;
+  width: 40px;
   margin-right: 8px;
 }
 
@@ -44,6 +45,7 @@
   cursor: pointer;
   margin: 0px;
   background-color: transparent;
+  padding: 0px;
   padding-left: 12px;
 }
 

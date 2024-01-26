@@ -28,7 +28,7 @@ const SidebarOptions = (props) => {
           >{` `}</div>
 
           <HiHome
-            size={30}
+            size={26}
             color={path === "/dashboard" ? "#2D60FF" : "#5B73A0"}
           />
           <span
@@ -48,7 +48,7 @@ const SidebarOptions = (props) => {
             }
           >{` `}</div>
           <MdAccountBalanceWallet
-            size={30}
+            size={26}
             color={path === "/transactions" ? "#2D60FF" : "#5B73A0"}
           />
           <span
@@ -66,7 +66,7 @@ const SidebarOptions = (props) => {
             className={path === "/profile" ? "active-route-line" : "route-line"}
           >{` `}</div>
           <CgProfile
-            size={30}
+            size={26}
             color={path === "/profile" ? "#2D60FF" : "#5B73A0"}
           />
           <span

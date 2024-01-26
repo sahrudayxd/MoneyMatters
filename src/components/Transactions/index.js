@@ -1,10 +1,7 @@
 import { Component } from "react";
 import Cookies from "js-cookie";
 import { ThreeDots } from "react-loader-spinner";
-
-import Header from "../Header";
-import SidebarOptions from "../SidebarOptions";
-import Logout from "../Logout";
+import CommonLayout from "../CommonLayout";
 import Failure from "../Failure";
 import TransactionsList from "../TransactionsList";
 import NoTransactions from "../NoTransactions";
@@ -251,19 +248,10 @@ class Transactions extends Component {
 
   render() {
     return (
-      <div className="transactions">
-        <div className="desktop-sidebar">
-          <SidebarOptions />
-          <Logout />
-        </div>
-        <div className="transactions-header-container">
-          <Header />
-          <div className="transactions-container">
-            {this.renderFilters()}
-            {this.renderApiStatusView()}
-          </div>
-        </div>
-      </div>
+      <CommonLayout>
+        {this.renderFilters()}
+        {this.renderApiStatusView()}
+      </CommonLayout>
     );
   }
 }

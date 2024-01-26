@@ -1,12 +1,8 @@
-import { Component } from "react";
+import React, { Component } from "react";
 import Cookies from "js-cookie";
 import { ThreeDots } from "react-loader-spinner";
-
+import CommonLayout from "../CommonLayout";
 import Failure from "../Failure";
-import Header from "../Header";
-import SidebarOptions from "../SidebarOptions";
-import Logout from "../Logout";
-
 import "./index.css";
 
 const apiStatusConstants = {
@@ -25,11 +21,11 @@ class Profile extends Component {
 
   componentDidMount() {
     if (this.state.apiStatus === apiStatusConstants.initial) {
-      this.fectchProfileDetails();
+      this.fetchProfileDetails();
     }
   }
 
-  fectchProfileDetails = async () => {
+  fetchProfileDetails = async () => {
     this.setState({ apiStatus: apiStatusConstants.inProgress });
     try {
       const userId = Cookies.get("money_matters_id");
@@ -88,8 +84,6 @@ class Profile extends Component {
       postalCode,
     } = profileDetails;
 
-    const randomIndex = Math.ceil(Math.random() * 12);
-
     const validateText = (str) => {
       if (str === null) {
         return "--";
@@ -97,61 +91,73 @@ class Profile extends Component {
     };
 
     return (
-      <div className="profile-details">
-        <div className="desktop-flex-container">
-          <div className="user-name-img">
-            <div className="profile-user-name">
-              <h1 className="profile-title">Name</h1>
-              <p className="profile-des">{validateText(name)}</p>
+      <div className="profile">
+        <img
+          src={`https://res.cloudinary.com/dtkwvlezz/image/upload/f_auto,q_auto/v1/MoneyMatters/dummyUsers/${Math.ceil(
+            Math.random() * 12
+          )}`}
+          alt="user img"
+          className="profile-desktop-image"
+        />
+
+        <div className="profile-details">
+          <div className="desktop-flex-container">
+            <div className="user-name-img">
+              <div className="profile-user-name">
+                <h1 className="profile-title">Name</h1>
+                <p className="profile-des">{validateText(name)}</p>
+              </div>
+              <img
+                src={`https://res.cloudinary.com/dtkwvlezz/image/upload/f_auto,q_auto/v1/MoneyMatters/dummyUsers/${Math.ceil(
+                  Math.random() * 12
+                )}`}
+                alt="user img"
+                className="profile-mobile-image"
+              />
             </div>
-            <img
-              src={`https://res.cloudinary.com/dtkwvlezz/image/upload/f_auto,q_auto/v1/MoneyMatters/dummyUsers/${randomIndex}`}
-              alt="user img"
-              className="profile-image"
-            />
+            <div className="profile-detail-item">
+              <h1 className="profile-title">Date of Birth</h1>
+              <p className="profile-des">{dateOfBirth}</p>
+            </div>
           </div>
-          <div className="profile-detail-item">
-            <h1 className="profile-title">Date of Birth</h1>
-            <p className="profile-des">{dateOfBirth}</p>
-          </div>
-        </div>
 
-        <div className="desktop-flex-container">
-          <div className="profile-detail-item">
-            <h1 className="profile-title">Email</h1>
-            <p className="profile-des">{validateText(email)}</p>
+          <div className="desktop-flex-container">
+            <div className="profile-detail-item">
+              <h1 className="profile-title">Email</h1>
+              <p className="profile-des">{validateText(email)}</p>
+            </div>
+            <div className="profile-detail-item">
+              <h1 className="profile-title">Password</h1>
+              <p className="profile-des">************</p>
+            </div>
           </div>
-          <div className="profile-detail-item">
-            <h1 className="profile-title">Password</h1>
-            <p className="profile-des">************</p>
-          </div>
-        </div>
 
-        <div className="desktop-flex-container">
-          <div className="profile-detail-item">
-            <h1 className="profile-title">Permanent Address</h1>
-            <p className="profile-des">{validateText(permanentAddress)}</p>
+          <div className="desktop-flex-container">
+            <div className="profile-detail-item">
+              <h1 className="profile-title">Permanent Address</h1>
+              <p className="profile-des">{validateText(permanentAddress)}</p>
+            </div>
+            <div className="profile-detail-item">
+              <h1 className="profile-title">Present Address</h1>
+              <p className="profile-des">{validateText(presentAddress)}</p>
+            </div>
           </div>
-          <div className="profile-detail-item">
-            <h1 className="profile-title">Present Address</h1>
-            <p className="profile-des">{validateText(presentAddress)}</p>
-          </div>
-        </div>
 
-        <div className="desktop-flex-container">
-          <div className="profile-detail-item">
-            <h1 className="profile-title">City</h1>
-            <p className="profile-des">{validateText(city)}</p>
+          <div className="desktop-flex-container">
+            <div className="profile-detail-item">
+              <h1 className="profile-title">City</h1>
+              <p className="profile-des">{validateText(city)}</p>
+            </div>
+            <div className="profile-detail-item">
+              <h1 className="profile-title">Postal Code</h1>
+              <p className="profile-des">{validateText(postalCode)}</p>
+            </div>
           </div>
-          <div className="profile-detail-item">
-            <h1 className="profile-title">Postal Code</h1>
-            <p className="profile-des">{validateText(postalCode)}</p>
-          </div>
-        </div>
 
-        <div className="profile-detail-item">
-          <h1 className="profile-title">Country</h1>
-          <p className="profile-des">India</p>
+          <div className="profile-detail-item">
+            <h1 className="profile-title">Country</h1>
+            <p className="profile-des">India</p>
+          </div>
         </div>
       </div>
     );
@@ -159,7 +165,7 @@ class Profile extends Component {
 
   renderFailureView = () => (
     <div className="profile-failure-loader">
-      <Failure fetchApi={this.fectchProfileDetails} />
+      <Failure fetchApi={this.fetchProfileDetails} />
     </div>
   );
 
@@ -179,20 +185,7 @@ class Profile extends Component {
   };
 
   render() {
-    return (
-      <div className="profile">
-        <div className="desktop-sidebar">
-          <SidebarOptions />
-          <Logout />
-        </div>
-        <div className="profile-header-container">
-          <Header />
-          <div className="profile-padding-container">
-            {this.renderApiStatusView()}
-          </div>
-        </div>
-      </div>
-    );
+    return <CommonLayout>{this.renderApiStatusView()}</CommonLayout>;
   }
 }
 

@@ -70,7 +70,7 @@ const renderAmount = (type, amount) => {
 };
 
 const renderFullDate = (date) => {
-  const formattedDate = format(parseISO(date), "dd LLL, yyyy hh:mm a");
+  const formattedDate = format(parseISO(date), "dd LLL yy, hh:mm a");
 
   return (
     <p className="transaction-text-style desktop-devices-date">
@@ -109,7 +109,7 @@ export const AdminTransactionItem = (props) => {
 export const UserTransactionItem = (props) => {
   const { transaction, isLastTransaction } = props;
   const { id, type, transactionName, amount, date, category } = transaction;
-  const formattedDate = format(parseISO(date), "dd-MM-yy");
+  const formattedDate = format(parseISO(date), "dd LLL");
 
   const renderEditButton = () => (
     <Popup

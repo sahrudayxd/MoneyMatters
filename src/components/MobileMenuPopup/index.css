@@ -2,7 +2,7 @@
   width: 100vw;
   height: 100vh;
   background-color: transparent;
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(16px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;

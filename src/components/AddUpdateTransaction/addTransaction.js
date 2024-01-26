@@ -38,13 +38,13 @@ class AddTransaction extends Component {
     dateTime: getCurrentDateTime(),
   };
 
-  componentDidMount() {
-    document.body.style.overflow = "hidden";
-  }
+  // componentDidMount() {
+  //   document.body.style.overflow = "hidden";
+  // }
 
-  componentWillUnmount() {
-    document.body.style.overflow = "auto";
-  }
+  // componentWillUnmount() {
+  //   document.body.style.overflow = "auto";
+  // }
 
   onChangeTransactionName = (event) => {
     this.setState({
