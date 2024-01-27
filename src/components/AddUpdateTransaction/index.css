@@ -1,9 +1,8 @@
 .transaction-popup {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   background: rgba(52, 64, 84, 0.7);
   backdrop-filter: blur(10px);
-  padding: 16px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -13,6 +12,7 @@
 .transaction-form {
   background-color: #fff;
   padding: 24px;
+  margin: 16px;
   border-radius: 16px;
   width: 100%;
   max-width: 400px;

@@ -18,6 +18,24 @@ const getCurrentDateTime = () => {
   return `${year}-${month}-${day}T${hours}:${minutes}`;
 };
 
+//Due to API Automatically Adds 5hours 30Minutes (API Fault)
+function reduceTime330Minutes(dateTime) {
+  const dateObj = new Date(dateTime);
+  dateObj.setHours(dateObj.getHours() - 5);
+  dateObj.setMinutes(dateObj.getMinutes() - 30);
+  const options = {
+    year: "2-digit",
+    month: "short",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  };
+  const formattedDate = dateObj.toLocaleString("en-US", options);
+
+  return formattedDate;
+}
+
 const transactionStatusConstants = {
   initial: "INITIAL",
   inProgress: "IN_PROGRESS",
@@ -37,14 +55,6 @@ class AddTransaction extends Component {
     showErrorAmountMsg: false,
     dateTime: getCurrentDateTime(),
   };
-
-  // componentDidMount() {
-  //   document.body.style.overflow = "hidden";
-  // }
-
-  // componentWillUnmount() {
-  //   document.body.style.overflow = "auto";
-  // }
 
   onChangeTransactionName = (event) => {
     this.setState({
@@ -217,6 +227,7 @@ class AddTransaction extends Component {
     try {
       const { transactionName, transactionType, category, amount, dateTime } =
         this.state;
+
       const addTransactionUrl =
         "https://bursting-gelding-24.hasura.app/api/rest/add-transaction";
       const userId = Cookies.get("money_matters_id");
@@ -235,7 +246,7 @@ class AddTransaction extends Component {
           type: transactionType,
           category,
           amount: parseInt(amount),
-          date: dateTime,
+          date: reduceTime330Minutes(dateTime),
           user_id: parseInt(userId),
         }),
       });

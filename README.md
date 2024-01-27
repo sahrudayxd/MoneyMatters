@@ -29,38 +29,62 @@ The Application should handle user's personal transaction record, and an Admin U
 ### Functionality
 
 1. **Sidebar**
+
    - After Logging in to the application, the user should be able to see and navigate to all the pages available to him based on his role
-     **Admin User:**
+
+     #### Admin User:
+
      - All Transactions
      - Profile
      - Logout
-     **Screen Link:** https://www.figma.com/file/U75zTaCvoQJUPT9FOaA3Dj/Money-Matters?type=design&node-id=1-1492&mode=dev
-     **Non-Admin User:**
+
+       **Screen Link:** https://www.figma.com/file/U75zTaCvoQJUPT9FOaA3Dj/Money-Matters?type=design&node-id=1-1492&mode=dev
+
+     #### Non-Admin User:
+
      - Dashboard
      - Your Transactions
      - Profile
      - Logout
-     **Screen Link:** https://www.figma.com/file/U75zTaCvoQJUPT9FOaA3Dj/Money-Matters?type=design&node-id=1-1492&mode=dev
+
+       **Screen Link:** https://www.figma.com/file/U75zTaCvoQJUPT9FOaA3Dj/Money-Matters?type=design&node-id=1-1492&mode=dev
+
 2. **Dashboard**
+
    - After Logging in to the application, the user should be navigated to this page by default
-   - **Admin User** should be able to view the following on the page
-     - **Total Credit** and **Total Debit** amounts of all the users
-     - **Recent three transactions** are done in the app (Sorted based on the transaction date)
-     - A **Bar Chart** showing the daily total credit and total debt of all the users in the last 7 days
+
+   #### Admin User should be able to view the following on the page:
+
+   - **Total Credit** and **Total Debit** amounts of all the users
+   - **Recent three transactions** are done in the app (Sorted based on the transaction date)
+   - A **Bar Chart** showing the daily total credit and total debt of all the users in the last 7 days
+
      **Screen Link:** https://www.figma.com/file/U75zTaCvoQJUPT9FOaA3Dj/Money-Matters?type=design&node-id=1-1492&mode=dev
-     - **Admin User Dashboard APIs:**
-       **Get Total Credits And Total Debits** - https://bursting-gelding-24.hasura.app/api/rest/transaction-totals-admin
-       **Recent 3 transactions:** https://bursting-gelding-24.hasura.app/api/rest/all-transactions (Paginate this api to get the recent 3 transactions)
-       **Get Last 7 days Daily Credit And Debit -** https://bursting-gelding-24.hasura.app/api/rest/daywise-totals-last-7-days-admin
-   - **Non-Admin Users** should be able to view the following on the page
-     - **Total Credit** and **Total Debit** amount of the user
-     - **Recent 3 transactions** done by the user (Sort based on the transaction date)
-     - A **Bar Chart** showing the daily total credit and total debit of the user in the last week
-     **Screen Link:** https://www.figma.com/file/U75zTaCvoQJUPT9FOaA3Dj/Money-Matters?type=design&node-id=1-1492&mode=dev
-     - **Non-Admin User Dashboard APIs:**
-       **Get Total Credits And Total Debits** - https://bursting-gelding-24.hasura.app/api/rest/credit-debit-totals
-       **Recent 3 transactions:** https://bursting-gelding-24.hasura.app/api/rest/all-transactions (Paginate this API to get the recent 3 transactions)
-       **Get the Last 7 days’ Daily Credit And Debit -** https://bursting-gelding-24.hasura.app/api/rest/daywise-totals-7-days
+
+     **Admin User Dashboard APIs:**
+
+     **Get Total Credits And Total Debits** - https://bursting-gelding-24.hasura.app/api/rest/transaction-totals-admin
+
+     **Recent 3 transactions:** https://bursting-gelding-24.hasura.app/api/rest/all-transactions
+
+     **Get Last 7 days Daily Credit And Debit -** https://bursting-gelding-24.hasura.app/api/rest/daywise-totals-last-7-days-admin
+
+   #### Non-Admin Users should be able to view the following on the page:
+
+   - **Total Credit** and **Total Debit** amount of the user
+   - **Recent 3 transactions** done by the user (Sort based on the transaction date)
+   - A **Bar Chart** showing the daily total credit and total debit of the user in the last week
+
+   **Screen Link:** https://www.figma.com/file/U75zTaCvoQJUPT9FOaA3Dj/Money-Matters?type=design&node-id=1-1492&mode=dev
+
+   **Non-Admin User Dashboard APIs:**
+
+   **Get Total Credits And Total Debits:** https://bursting-gelding-24.hasura.app/api/rest/credit-debit-totals
+
+   **Recent 3 transactions:** https://bursting-gelding-24.hasura.app/api/rest/all-transactions
+
+   **Get the Last 7 days’ Daily Credit And Debit:** https://bursting-gelding-24.hasura.app/api/rest/daywise-totals-7-days
+
 3. **Your Transactions - Non-Admin User Only**
 
    - When the page is opened, the user should be able to see the following Tabs
@@ -75,12 +99,16 @@ The Application should handle user's personal transaction record, and an Admin U
      - Date
      - Option to Update or Delete the Transaction
    - The user should be able to update a transaction by clicking on the Edit Button on the transaction
-   - **Screen Links:**
-     **All Transactions:** https://www.figma.com/file/U75zTaCvoQJUPT9FOaA3Dj/Money-Matters?type=design&node-id=1-1492&mode=dev
-     **Credit:** [https://www.figma.com/file/U75zTaCvoQJUPT9FOaA3Dj/Money-Matters? type=design&node-id=1-3892&mode=dev](https://www.figma.com/file/U75zTaCvoQJUPT9FOaA3Dj/Money-Matters?type=design&node-id=1-3892&mode=dev)
-     **Debit:** https://www.figma.com/file/U75zTaCvoQJUPT9FOaA3Dj/Money-Matters?type=design&node-id=1-4034&mode=dev
 
-   **API:** https://bursting-gelding-24.hasura.app/api/rest/all-transactions
+   **Screen Links:**
+
+   **All Transactions:** https://www.figma.com/file/U75zTaCvoQJUPT9FOaA3Dj/Money-Matters?type=design&node-id=1-1492&mode=dev
+
+   **Credit:** https://www.figma.com/file/U75zTaCvoQJUPT9FOaA3Dj/Money-Matters?type=design&node-id=1-3892&mode=dev
+
+   **Debit:** https://www.figma.com/file/U75zTaCvoQJUPT9FOaA3Dj/Money-Matters?type=design&node-id=1-4034&mode=dev
+
+   **All Transactions API:** https://bursting-gelding-24.hasura.app/api/rest/all-transactions
 
 4. **All Transactions - Admin User Only**
 
@@ -95,12 +123,16 @@ The Application should handle user's personal transaction record, and an Admin U
      - Category
      - Amount
      - Date
-   - **Screen Link:**
-     **All Transactions:** https://www.figma.com/file/U75zTaCvoQJUPT9FOaA3Dj/Money-Matters?type=design&node-id=1-2545&mode=dev
-     **Credit:** https://www.figma.com/file/U75zTaCvoQJUPT9FOaA3Dj/Money-Matters?type=design&node-id=1-3892&mode=dev
-     **Debit:** https://www.figma.com/file/U75zTaCvoQJUPT9FOaA3Dj/Money-Matters?type=design&node-id=1-4034&mode=dev
 
-   **API:** https://bursting-gelding-24.hasura.app/api/rest/all-transactions
+   **Screen Links:**
+
+   **All Transactions:** https://www.figma.com/file/U75zTaCvoQJUPT9FOaA3Dj/Money-Matters?type=design&node-id=1-2545&mode=dev
+
+   **Credit:** https://www.figma.com/file/U75zTaCvoQJUPT9FOaA3Dj/Money-Matters?type=design&node-id=1-3892&mode=dev
+
+   **Debit:** https://www.figma.com/file/U75zTaCvoQJUPT9FOaA3Dj/Money-Matters?type=design&node-id=1-4034&mode=dev
+
+   **All Transactions API:** https://bursting-gelding-24.hasura.app/api/rest/all-transactions
 
 5. **Add Transaction**
 

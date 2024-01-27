@@ -119,6 +119,7 @@ export const UserTransactionItem = (props) => {
         </button>
       }
       modal
+      contentStyle={{ overflowY: "auto", margin: "0px" }}
     >
       {(close) => {
         return (

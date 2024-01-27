@@ -20,6 +20,7 @@ class Header extends Component {
           </button>
         }
         modal
+        contentStyle={{ overflowY: "auto", margin: "0px" }}
       >
         {(close) => {
           return <AddTransaction close={close} />;
